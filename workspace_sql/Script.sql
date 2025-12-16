@@ -210,7 +210,7 @@ SELECT empno, ename, sal, deptno
 FROM EMP
 WHERE deptno = 10;
 
-SELECT * --q1
+SELECT * --Q1
 FROM EMP
 WHERE ename LIKE '%S' ;
 
@@ -221,33 +221,315 @@ WHERE job LIKE 'SALESMAN' ;
 SELECT empno, ename, job, sal, deptno --Q3-1
 FROM EMP
 WHERE DEPTNO = 20 AND SAL > 2000
-UNION 
+UNION all 
 SELECT empno, ename, job, sal, deptno
 FROM EMP
 WHERE DEPTNO = 30 AND SAL > 2000 ;
 
-SELECT empno, ename, job, sal, deptno --Q3-1
+SELECT empno, ename, job, sal, deptno --Q3-2
 FROM EMP
-WHERE DEPTNO = 20 AND SAL > 2000
-UNION ALL
-SELECT empno, ename, job, sal, deptno
-FROM EMP
-WHERE DEPTNO = 30 AND SAL > 2000 ;
+WHERE 
+	DEPTNO IN(20,30) AND sal > 2000;
 
 SELECT * --Q4
 FROM EMP
-WHERE SAL < 2000 OR SAL > 3000 ;
+WHERE 
+	SAL < 2000 OR SAL > 3000 ;
 
 SELECT ENAME, EMPNO, SAL, DEPTNO --Q5
 FROM EMP
-WHERE ENAME LIKE '%E%' AND DEPTNO = 30 AND SAL NOT BETWEEN 1000 AND 2000 ;
+WHERE 
+	ENAME LIKE '%E%' 
+	AND DEPTNO = 30 
+	AND SAL NOT BETWEEN 1000 AND 2000 ;
 
 SELECT * --Q6
 FROM EMP
 WHERE 
 	COMM IS NULL AND MGR IS NOT NULL
 	AND (JOB = 'MANAGER' OR JOB = 'CLERK')
-	AND ENAME NOT LIKE '_L%' ;
+	AND ENAME NOT LIKE '_L%';
+
+/* 함수 */
+
+--upper(컬럼명), lower(컬럼명)
+SELECT ename, upper(ename), lower(ename), initcap(ename)
+FROM emp;
+
+SELECT 1 FROM dual;
+
+SELECT upper('aBc') AS 대문자
+, lower('aDFGcDdfdc') AS 소문자 
+FROM dual;
+
+SELECT * FROM EMP
+WHERE lower(ename) LIKE lower('%aM%');
+
+--length
+SELECT ename, length(ename)
+	FROM emp;
+
+SELECT * FROM emp
+WHERE length(ename) = 5;
+
+SELECT LENGTH('a'), length('한'), lengthb('한'), lengthb('a') FROM dual;
+
+--SUBSTR(대상, 시작하는 곳, 몇 개) 
+
+SELECT 
+	job,
+	substr(job,1,2),
+	substr(job,3,2),
+	substr(job,5) 
+FROM emp;
+
+SELECT 
+	job,
+	substr(job,2,3),
+	substr(job,3),
+	substr(job,3,4)
+FROM emp;
+
+--사원 이름을 두번째부터 세글자만 출력
+SELECT 
+	ename,
+	substr(ename,2,3)
+FROM emp;
+	
+SELECT 
+	ename,
+	substr(ename,2,30)
+FROM emp;      --마지막 숫자가 커도 끝까지만 출력
+   
+SELECT 
+	ename,
+	substr(ename,23,3)
+FROM emp;      -- 실제 길이보다 시작이 크면 null
+
+
+SELECT ename, substr(ename, -3, 2) FROM emp;
+SELECT ename, substr(ename, -30, 2) FROM emp;
+
+
+-- replace(대상, 바뀔 문자, 바꿀 문자)
+-- "모든" 바뀔 문자를 바꿀 문자로 변경
+SELECT 
+	'a-b-c',
+	REPLACE('a-b-c','-',' '),
+	replace('a-b-c', '-'),
+	REPLACE('a-b-c', '-', '+')
+FROM dual;
+
+-- 사원 이름에 A를 모두 'abc'로 교체
+
+SELECT
+	ename,
+	replace(ename,'A','abc')
+	FROM emp
+WHERE ename like '%A%';
+
+-- LPAD, RPAD (대상, 길이, 대체문자)
+
+-- lpad, rpad는 모자르면 채우고, 넘치면 자른다.
+-- 즉, 두번째 값의 길이로 만들어준다.
+SELECT LPAD(ename, 10, '#'), LPAD(ename, 5, '#') FROM emp;
+
+/* 문제1
+ ename에서 앞에 두글자만 출력
+substr, lpad, replace
+*/ 
+/* 문제2
+ 	ename의 앞 두글자만 원본을 출력하고
+ 	나머지는 4개의 *로 표시
+ */
+/* 문제3
+ ename의 앞 두글자만 원본을 출력하고
+ 나머지는 *로 출력
+ 단, 전체 길이는 원래 이름의 길이만큼
+ */
+
+--문제1-1
+SELECT ename, substr(ename, 1, 2) FROM emp;
+
+--문제1-2
+SELECT ename, lpad(ename, 2, ' ') FROM emp;
+
+--문제1-3
+SELECT ename, replace(ename, substr(ename,3), ' ') FROM emp;
+
+--문제 2
+SELECT ename, rpad(substr(ename, 1,2), 6, '*') FROM emp;
+
+--문제 3
+SELECT ename, rpad(substr(ename,1,2), LENGTH(ename),'*') FROM emp;
+
+--문제 4 앞 두글자만 *처리
+SELECT ename, '**' || substr(ename,3) FROM emp;
+
+SELECT ename, lpad(substr(ename,3), length(ename),'*') FROM emp;
+--trim
+SELECT 
+ '[' || '  _ _oracle_ _  ' || ']',
+ '[' || trim('  _ _oracle_ _  ') || ']'
+ FROM dual;
+
+SELECT 
+	round(14.46),
+	round(14.46, 0),
+	round(14.46, 1),  --14
+	round(14.46, -1)  --10
+FROM emp;
+
+
+
+
+
+SELECT 'ab' || 'cd' || 'efg' FROM dual;
+
+SELECT empno || ':' || ename FROM emp;
+
+
+SELECT 
+	trunc(14.46),
+	trunc(14.46, 0),
+	trunc(14.46, 1),
+	trunc(14.46, -1),
+	trunc(-14.46)
+FROM emp;
+
+SELECT 
+	ceil(3.14),
+	floor(3.14),
+	ceil(-3.14), --  -3
+	floor(-3.14), --  -4
+	trunc(-3.14)  --  -3
+	FROM EMP ;
+
+SELECT mod(15, 6)
+FROM dual;
+
+SELECT 15/6, 
+	15/0 --error
+FROM dual;
+
+SELECT MOD(15,0)
+FROM dual;
+--나머지 구하기 (mod)
+SELECT 
+	mod(6, 3),
+	mod(7, 3),
+	mod(8, 3),
+	mod(9, 3)
+FROM dual;
+
+SELECT sysdate FROM dual;
+
+SELECT 
+	TO_char(sysdate, 'YYYY/MM/DD HH24:MI:SS') AS 현재날짜시간
+FROM dual;
+
+SELECT to_char(
+	sysdate,
+	'yyyy"년" mm"월" dd"일" hh24"시" mi"분" ss "초"')
+FROM dual;
+
+SELECT * FROM emp
+WHERE hiredate > TO_date('1981/06/01', 'yyyy/mm/dd');
+
+SELECT sal, comm,
+	nvl(comm,0),
+	sal+nvl(comm, 0),
+	sal+comm,
+	nvl(TO_char(comm),'N/A')
+	FROM EMP;
+
+SELECT job, sal,
+	decode(job,                      --job이
+			'MANAGER', sal*1.1,      --정확히 MANAGER라면  
+			'SALESMAN', sal*1.05,
+			'ANALYST', sal,
+			sal* 1.03
+			) AS upsal               --위 조건에 없다면         
+FROM emp; 
+
+SELECT job, sal,
+	CASE job
+		WHEN 'MANAGER' THEN sal*1.1
+		WHEN 'SALESMAN' THEN sal*1.05
+		WHEN 'ANALYST' THEN sal
+		ELSE sal*1.03
+	END AS upsal
+FROM emp;
+
+SELECT comm,
+	CASE
+		WHEN comm IS NULL THEN '해당 사항 없음'
+		WHEN comm = 0 THEN '수당 없음'
+		WHEN comm > 0 THEN '수당 : ' || comm
+	END AS comm_text
+	FROM emp;
+	
+--문제1
+SELECT 
+	empno,
+	rpad(substr(empno,1,2),4,'*') AS MASKING_EMPNO,
+	ename,
+	rpad(substr(ename,1,1),5,'*') AS MASKING_ENAME
+	FROM emp
+WHERE length(ename) = 5;
+
+--문제2
+--empno, ename, sal
+--하루급여, 시급
+
+SELECT empno, ename, sal,
+	trunc(sal/21.5, 2) AS day_pay,
+	round(sal/21.5/8, 1) AS time_pay
+FROM emp;
+
+--문제 4
+SELECT to_char(empno), ename, to_char(mgr),
+	CASE
+		WHEN mgr IS NULL THEN '0000'
+		WHEN substr(mgr,1,2) = '75' THEN '5555'
+		WHEN substr(mgr,1,2) = '76' THEN '6666'
+		WHEN substr(mgr,1,2) = '77' THEN '7777'
+		WHEN substr(mgr,1,2) = '78' THEN '8888'
+		ELSE to_char(mgr)
+		END AS chg_mgr
+		FROM emp;
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

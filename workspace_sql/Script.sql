@@ -471,7 +471,7 @@ SELECT comm,
 	
 --문제1
 SELECT 
-	empno,
+	TO_char(empno),
 	rpad(substr(empno,1,2),4,'*') AS MASKING_EMPNO,
 	ename,
 	rpad(substr(ename,1,1),5,'*') AS MASKING_ENAME
@@ -482,13 +482,13 @@ WHERE length(ename) = 5;
 --empno, ename, sal
 --하루급여, 시급
 
-SELECT empno, ename, sal,
+SELECT TO_CHAR(empno) empno, ename, TO_CHAR(sal) sal,
 	trunc(sal/21.5, 2) AS day_pay,
 	round(sal/21.5/8, 1) AS time_pay
 FROM emp;
 
 --문제 4
-SELECT to_char(empno), ename, to_char(mgr),
+SELECT to_char(empno) empno, ename, to_char(mgr) mgr,
 	CASE
 		WHEN mgr IS NULL THEN '0000'
 		WHEN substr(mgr,1,2) = '75' THEN '5555'

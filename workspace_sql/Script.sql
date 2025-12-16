@@ -482,13 +482,17 @@ WHERE length(ename) = 5;
 --empno, ename, sal
 --하루급여, 시급
 
-SELECT TO_CHAR(empno) empno, ename, TO_CHAR(sal) sal,
+SELECT TO_CHAR(empno) empno, 
+	ename, 
+	TO_CHAR(sal) sal,
 	trunc(sal/21.5, 2) AS day_pay,
 	round(sal/21.5/8, 1) AS time_pay
 FROM emp;
 
 --문제 4
-SELECT to_char(empno) empno, ename, to_char(mgr) mgr,
+SELECT to_char(empno) as empno,
+	ename, 
+	to_char(mgr) as mgr,
 	CASE
 		WHEN mgr IS NULL THEN '0000'
 		WHEN substr(mgr,1,2) = '75' THEN '5555'
@@ -497,7 +501,7 @@ SELECT to_char(empno) empno, ename, to_char(mgr) mgr,
 		WHEN substr(mgr,1,2) = '78' THEN '8888'
 		ELSE to_char(mgr)
 		END AS chg_mgr
-		FROM emp;
+FROM emp;
 
 
 

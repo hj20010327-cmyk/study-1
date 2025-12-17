@@ -173,6 +173,64 @@ ORDER BY sal;
 
 
 
+-- 1
+SELECT ename FROM emp
+WHERE 
+	length(ename) >= 5;
+
+-- 2
+SELECT ename, job FROM EMP
+WHERE
+	lower(job) LIKE lower('manager');
+
+-- 3
+SELECT ename, sal, nvl(comm,0), (nvl(comm,0)+sal)
+	 AS 실제급여
+FROM emp;
+
+-- 4
+SELECT ename, hiredate, to_char(hiredate) FROM emp;
+
+
+-- 5
+SELECT ename, deptno FROM emp
+WHERE
+	deptno NOT IN (10,20);
+
+--6
+SELECT ename, deptno, job, sal FROM emp
+WHERE 
+	(deptno = 30 OR job = 'SALESMAN')
+	AND sal >= 1500;
+
+-- 7
+SELECT ename, sal, 
+	CASE 
+ 		WHEN sal >= 3000 THEN 'A'
+ 		WHEN sal >= 2000 THEN 'B'
+		ELSE 'C'
+		END AS "급여등급"
+ FROM emp
+ ORDER BY 급여등급, sal desc;
+
+--문제 8
+SELECT ename, RPAD(substr(ename,1,2), length(ename), '*')
+FROM emp;
+
+
+-- 문제 9
+SELECT * FROM emp
+WHERE mgr IS NULL;
+
+-- 문제 10
+SELECT ename, job, sal,
+	CASE job
+		when 'MANAGER' THEN sal*0.2
+		WHEN 'SALESMAN' THEN sal*0.3
+		ELSE sal*0.1
+		END AS 보너스
+		FROM emp;
+
 
 
 

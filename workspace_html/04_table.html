@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 테이블 -->
+    <table border="1">
+        <!-- tr : table row 한 줄을 뜻함 -->
+        <tr>
+            <!--
+                td : table data 한 칸을 뜻함
+                상하정렬 
+             -->
+            <td>내용1-1</td>
+            <td>내용1-2</td>
+            <td>내용1-3</td>
+        </tr>
+        <tr>
+            <td>내용2-11111111111111111</td>
+            <td>내용2-211111111111111</td>
+            <td>내용2-311111111111111</td>
+        </tr>
+    </table>
+
+    <table border="1">
+        <tr>
+            <!--
+                th : table header 컬럼의 제목
+                두꺼운 글씨로 상하좌우 정렬
+            -->
+            <th>내용1-1</th>
+            <th>내용1-2</th>
+            <th>내용1-3</th>
+        </tr>
+        <tr>
+            <td>내용2-11111111111111111111</td>
+            <td>내용2-211111111111111</td>
+            <td>내용2-31111111111111111</td>
+            <!-- td가 아닌 곳 -->
+        </tr>
+        <!--
+        각 줄마다 칸의 개수가 같아야 한다.
+        같지 않으면 디자인이 이상해진다
+    -->
+        <table border="1">
+            <tr>
+                <th>내용1-1</th>
+                <th>내용1-2</th>
+                <th>내용1-3</th>
+            </tr>
+            <tr>
+                <td>내용2-11111111111111111111</td>
+                <td>내용2-211111111111111</td>
+                <td>내용2-31111111111111111</td>
+                <td>내용 2-4</td>
+            </tr>
+        </table>
+        <br><br><br>
+        <table border="1">
+            <tr>
+                <th>천안</th>
+                <td>3명</td>
+                <td>5000원</td>
+            </tr>
+            <tr>
+                <th>평택</th>
+                <td>5명</td>
+                <td>12000원</td>
+            </tr>
+        </table>
+
+        <hr>
+        <h1>테이블의 정석 구성</h1>
+        <table border="1">
+
+            <caption>테이블 내용에 대한 설명</caption>
+            <summary>제목1, 제목2 (컬럼 나열)</summary>
+
+            <thead>
+                <tr>
+                    <th>제목1</th>
+                    <th>제목2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>내용1</td>
+                    <td>내용2</td>
+                </tr>
+                <tr>
+                    <td>내용1</td>
+                    <td>내용2</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table border=1>
+            <tr>
+                <th width="200" height="100">제목</th>
+            </tr>
+            <tr>
+                <td width="200" height="100">내용</td>
+            </tr>
+        </table>
+        <hr>
+        <!-- tr*2>tr*3 -->
+        
+        <!-- 
+            rowspan : 열 병합
+            colspan : 행 병함 
+        -->
+        <table border="1">
+            <tr>
+                <td rowspan="2">1-1</td>
+                <td colspan="2">1-2</td>
+                <!-- <td>1-3</td> -->
+            </tr>
+            <tr>
+                <!-- <td>2-1</td> -->
+                <td>2-2</td>
+                <td>2-3</td>
+            </tr>
+        </table>
+
+<br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>

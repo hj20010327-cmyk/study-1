@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css 주석*/
+
+        /* 전체 선택자*/
+        * {
+            color : rgb(169, 210, 47);
+        }
+        
+        /* tag 선택자 */
+        h2 {
+            font-size: 400%;
+        }
+
+        h1 {
+            font-size: 400%;
+        }
+        /* ,로 구분해서 여러개 적용 가능*/
+        h1,h2 {
+            font-size: 400%;
+        }
+
+        /* class 선택자 */
+        .c1 {
+            background-color: gray;
+        }
+        .bigText {
+            font-size: 30px;
+        }
+
+        /* id 선택자 */
+        #i1 {
+            color: rgb(0, 0, 0);
+        }
+
+        /* 자식 선택자 */
+        div > strong {
+           background-color:dodgerblue;
+        }
+        /* 자손 선택자*/
+        div strong {
+            border:3px solid red;
+        }
+        /* 속성 선택자*/
+        [href] {
+            background-color: yellow;
+        }
+        /* 속성의 값이 일치하면 */
+        [type=text] {background-color: yellow;}
+        /* #i1은 [id=i1의 줄임말] */
+        [id=i1] {
+            background-color: yellow;}
+        /* https로 값이 시작되는 것들 (like 검색처럼) */
+        [href^=https] { 
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello world</h1>
+    <h2>부제목</h2>
+    <ul>
+        <li class="c1" id="i1">li 1</li>
+        <li class="c1 bigText">li 2</li>
+        <li id="i1">li 3</li>
+    </ul>
+    <!-- id 같은값은 한페이지에 하나만 -->
+
+    <strong>밖에 strong</strong>
+    <div>
+        <strong>div안에 strong</strong>
+    </div>
+
+    <div>
+        <a href="">
+            <strong>div > a > strong</strong> 
+        </a>
+    </div>
+
+    <input type="text"><br>
+    <input type="password"><br>
+    <a href="http://...">http</a>
+    <a href="https://...">https</a>
+</body>
+</html>

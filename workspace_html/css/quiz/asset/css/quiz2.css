@@ -1,0 +1,26 @@
+.p {
+    border: 1px solid red;
+    height: 600px;
+    width: 1000px;
+    background-color: gray;
+    
+    }
+.p .c1 {
+    border: 1px solid red;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url('https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/80f9d9d02af9527ab358c361/pexels-photo-3335367.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 400px;
+}
+.p .c2 {
+    border: 1px solid red;
+    display: inline-block;
+    height: 500px;
+    width: 350px;
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+}

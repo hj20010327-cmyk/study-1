@@ -1,26 +1,46 @@
 .p {
-    border: 1px solid red;
-    height: 600px;
-    width: 1000px;
+    /* border: 1px solid red; */
+    height: 700px;
+    width: 100%;
     background-color: gray;
-    
-    }
+    text-align: center;
+}
+body {
+    background-color: gray;
+}
+
 .p .c1 {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: inline-block;
     vertical-align: top;
     background-image: url('https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/80f9d9d02af9527ab358c361/pexels-photo-3335367.jpeg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 600px;
-    width: 400px;
+    height: 95%;
+    width: 480px;
+    margin-right: 30px;
+    margin-top: 20px;
 }
+
 .p .c2 {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: inline-block;
-    height: 500px;
+    height: 80%;
     width: 350px;
-    text-align: center;
+    text-align: left;
     padding: 50px;
     background-color: white;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.8em;
+    margin-top: 20px;
+}
+
+.c2 .c3 {
+    border: 1px solid gray;
+    width: 100px;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
 }

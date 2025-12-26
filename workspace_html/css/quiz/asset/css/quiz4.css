@@ -1,0 +1,36 @@
+.wrap {
+    border: 1px solid red;
+    margin: 0 auto;
+    text-align: center;
+    width: 90vw;
+    height: 90vh;
+    box-sizing: border-box;
+}
+.a1 {
+    border: 1px solid red;
+    display: inline-block;
+    width: 40%;
+    height: 100%;
+    text-align: left;
+    padding: 20px;
+    
+}
+.a2 {
+    border: 1px solid red;
+    display: inline-block;
+    width: 45%;
+    height: 100%;
+    text-align: left;
+    vertical-align: top;
+    padding: 20px;
+    
+}
+.pic1 {
+    width: 100%;
+}
+.pic2 {
+    width: 100%;
+}
+.l3 {
+    padding: 20px;
+}

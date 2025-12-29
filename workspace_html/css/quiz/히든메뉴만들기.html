@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a1 {
+            border: 1px solid red;
+            position: sticky;
+            top: 0px;
+        }
+
+        .a2 {
+            border: 1px solid blue;
+            display: none;
+
+        }
+
+        .a1:hover .a2 {
+
+            display: block;
+        }
+
+        .a3 {
+            border: 1px solid blue;
+            position: sticky;
+            top: 60px;
+        }
+
+        .a4 {
+            border: 1px solid red;
+            display: none;
+        }
+
+        .a3:hover+.a4 {
+            display: block;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        .a4:hover {
+            display: block;
+        }
+        .p1 {
+            border: 1px solid red;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .c1 {
+            border: 1px solid blue;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            /* -, + 양쪽에 공백 필수 */
+            top: calc( (200px/2) - (100px/2) );
+            left: calc(50% - (100px/2));
+        }
+
+        :root {
+            --menu-color: rgba(255, 0, 0, 0.214);
+        }
+        .p1 {
+            background-color: var(--menu-color);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 부모일때 -->
+    <div class="a1">
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <li>메뉴4</li>
+
+        </ul>
+        <div class="a2">
+            <ul>
+                <li>메뉴1-1</li>
+                <li>메뉴2-1</li>
+                <li>메뉴3-1</li>
+                <li>메뉴4-1</li>
+            </ul>
+            <ul>
+                <li>메뉴1-2</li>
+                <li>메뉴2-2</li>
+                <li>메뉴3-2</li>
+                <li>메뉴4-2</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 형제 일때 -->
+
+    <div class="a3">
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <li>메뉴4</li>
+
+        </ul>
+    </div>
+    <div class="a4">
+        <ul>
+            <li>메뉴1-1</li>
+            <li>메뉴2-1</li>
+            <li>메뉴3-1</li>
+            <li>메뉴4-1</li>
+        </ul>
+        <ul>
+            <li>메뉴1-2</li>
+            <li>메뉴2-2</li>
+            <li>메뉴3-2</li>
+            <li>메뉴4-2</li>
+        </ul>
+    </div>
+    
+    <div class="p1">
+        부모 박스
+        <div class="c1">
+            자식 박스
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>

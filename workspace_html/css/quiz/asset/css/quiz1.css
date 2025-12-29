@@ -7,7 +7,7 @@
     overflow: hidden;
 }
 #content .wrapper {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 200px;
     width: 500px;
     margin: 0 auto;

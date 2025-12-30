@@ -1,0 +1,61 @@
+.box {
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    color: white;
+    margin: 10px;
+}
+.translate {
+    /* transform: translate(10px, 20px); */
+    transform: translate(50%, 50%);
+}
+
+.scale {
+    /* scale에서는 1이 100% */
+    transform: scale(1.3);
+    /* transform: scaleX(1.5); */
+}
+.rotate {
+    transform: rotate(30deg);
+}
+.total {
+    transform: translate(50%, 50%) scale(1.3) rotate(-45deg);
+}
+.skew {
+    transform: skew(10deg, -30deg);
+}
+.parent {
+    width: 40%;
+    height: 30vh;
+    border: 1px solid red;
+    position: relative;
+    
+}
+.child {
+    width: 30%;
+    height: 30%;
+    border: 1px solid blue; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%,-50%);
+}
+
+.box {
+    /* transition: width 0.5s; */
+    transition: all 0.5s;
+}
+.box:hover {
+    /* transition: all 0.5s; */
+    width: 200px;
+    background-color: red;
+    border-radius: 20px;
+}
+.box2 {
+    height: 50vh;
+    border: 1px solid red;
+    /* 방향 or 각도deg, 색상(색, 거리%), 색상(색, 거리%) */
+    background-image: linear-gradient( 135deg, red 20% 50%, green 80%, blue 100% );
+}

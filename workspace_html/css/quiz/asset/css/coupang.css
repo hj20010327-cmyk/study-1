@@ -1,0 +1,22 @@
+/* .wrap {
+     border: 1px solid red; 
+} */
+.box {
+    width: 100px;
+    height: 100px;
+    
+}
+.img {
+    display: none;
+    position: absolute;
+    left: 110px;
+    top: 10px;
+    vertical-align: top;
+}
+.box:hover + .img {
+    display: inline;
+}
+
+.img:hover {
+    display: inline;
+}

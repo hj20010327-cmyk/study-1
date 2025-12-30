@@ -1,0 +1,68 @@
+.wrap {
+    width: 1100px;
+    height: 80vh;
+    /* border: 1px solid red; */
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+
+}
+.parent1 {
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 40%;
+    height: 100%;
+    text-align: right;
+    vertical-align: top;
+    margin-top: 20px;
+    
+}
+.parent2 {
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 40%;
+    height: 100%;
+    text-align: left;
+    margin-top: 20px;
+    
+
+}
+.img1 {
+    background-image: url("https://images01.nicepage.com/c461c07a441a5d220e8feb1a/4583c5e5778759d5bf354095/dfggdf-min.jpg");
+    background-size: cover;
+    width: 90%;
+    height: 300px;
+}
+.img2 {
+    background-image: url("https://images01.nicepage.com/c461c07a441a5d220e8feb1a/4583c5e5778759d5bf354095/dfggdf-min.jpg");
+    background-size: cover;
+    width: 200px;
+    height: 150px;
+    margin-top: 80px;
+    position: relative;
+    right: -200px;
+}
+.img3 {
+    background-image: url("https://images01.nicepage.com/c461c07a441a5d220e8feb1a/4583c5e5778759d5bf354095/dfggdf-min.jpg");
+    background-size: cover;
+    width: 200px;
+    height: 150px;
+}
+.abs {
+    position: absolute;
+    background-color: bisque;
+    height: 100%;
+    width: 200px;
+    top: 0px;
+    left: calc(50% - 100px);
+    z-index: -999;
+}
+p {
+    background-color: black;
+    font-size: 30px;
+    line-height: 60px;
+    width: 80%;
+    color: white;
+    padding: 20px;
+}

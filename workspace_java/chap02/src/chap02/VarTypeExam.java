@@ -18,8 +18,13 @@ public class VarTypeExam {
 		
 		// L 또는 l을 붙이면 명시적인 long
 //		long l1 = 2200000000; 에러
+<<<<<<< HEAD
 //		long l1 = 2200000000L;
 //		long l2 = 30;
+=======
+		long l1 = 2200000000L;
+		long l2 = 30;
+>>>>>>> 2e9c10f (1월 5일 수업)
 		
 		String s1 = "이용상";
 		System.out.println("s1: " + s1);
@@ -31,6 +36,7 @@ public class VarTypeExam {
 		String s3 = "\\이\t용\n상";
 		System.out.println("s3: " + s3);
 		
+<<<<<<< HEAD
 		System.out.println("글씨"+3);
 		System.out.println("글씨"+ 3 + 2); // 글씨32
 		System.out.println("글씨"+ (3 + 2)); // 글씨5
@@ -149,6 +155,8 @@ public class VarTypeExam {
 		System.out.println("right: " + right);
 		
 		
+=======
+>>>>>>> 2e9c10f (1월 5일 수업)
 	}
 
 }

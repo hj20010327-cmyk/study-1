@@ -151,6 +151,10 @@ public class OpExam {
 		int a6 = a5 / a3;
 		System.out.println("천원짜리: " + a6 + "장");
 		
+		int s = 95;
+		String grade = ( s > 90 ) ? "A" : "B";
+		System.out.println("grade: " + grade);
+		
 		
 	}
 

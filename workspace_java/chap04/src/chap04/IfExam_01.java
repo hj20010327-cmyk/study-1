@@ -218,8 +218,10 @@ public class IfExam_01 {
 //		
 //		if (x1< y1) {
 //			System.out.println(y1);
-//		} else {
+//		} else if (x1 > y1) {
 //			System.out.println(x1);
+//		} else {
+//			System.out.println("같다");
 //		}
 		
 		// 문제 4
@@ -476,6 +478,7 @@ public class IfExam_01 {
 //		} else {
 //			System.out.println("안겹칩니다");
 //		}
+		
 		
 		
 	}

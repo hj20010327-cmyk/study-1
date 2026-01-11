@@ -346,9 +346,43 @@ public class ForExam_03 {
 		}
 		
 		
-		
-		
-		
+		// border 치기
+		// line  minus  n
+		// 피라미드랑 비슷?
+//		
+		// ***** <  세로= border1 가로= border2 
+		// *   *
+		// *   *
+		// *   *
+		// *****
+		//
+		int border1;
+		int border2;
+		border1= 5;
+		border2= 5;
+		for (line= 1; line <= border1; line++) {
+			for (star = 1; star <= border2; star++) {
+				if (star%border1 == 0) {
+				System.out.println("*");
+				} else {
+					System.out.print("*");
+				}
+				
+			}
+			
+		}
+		System.out.println("--------------------");
+		for (line= 1; line <= border1; line++) {
+			for (star = 1; star <= border2; star++) {
+				if (line == 1 || line == border1 || star == 1 || star == border2 ) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+				
+			}
+			System.out.println();  // ** 한줄 끝나면 줄바꿈 계속 빼먹음
+		}
 		
 		// 1~ 100까지 쓰는데 10의 배수마다 엔터치기
 //		int e;

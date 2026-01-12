@@ -324,12 +324,12 @@ public class IfExam_01 {
 //			System.out.println("여름이 왔습니다");
 //		} else if(month >= 9 && month <= 11) {
 //			System.out.println("가을이 왔습니다");
-//		} else if(month == 12 || month <= 2 && month >= 1) {
+//		} else if(month == 12 || month == 2 || month == 1) {
 //			System.out.println("겨울이 왔습니다");
 //		} else {
 //			System.out.println("정확히 입력해주세요");
 //		}
-		
+//		
 		// 문제 8
 		// 임의의 수를 입력 받아서 다음과 같이 출력
 		// 예 : 125
@@ -355,7 +355,7 @@ public class IfExam_01 {
 //		} else {
 //			str += " 홀수입니다.";
 //		}
-//		System.out.println(str);		
+//		System.out.println(what +"은 "+str);		
 				
 				
 				
@@ -424,8 +424,11 @@ public class IfExam_01 {
 //		int total = tim*60 + minute + 35;
 //		int result12 = total/60;
 //		int result60 = total%60;
-//		System.out.println(result12+ "시 " + result60 + "분" );
-		
+//		if (result12 >= 24) {
+//		System.out.println((result12-24)+ "시 " + result60 + "분" );
+//		} else {
+//			System.out.println(result12 + "시 " + result60 + "분");
+//		}
 		// 문제 11
 		// 두 자리 숫자를 입력받아서
 		// 10의 자리와 1의 자리가 같은지 판단
@@ -464,20 +467,22 @@ public class IfExam_01 {
 		// 반대편 모서리 : x2: 90, y2 : 100
 		// 입력받은 두 수를 좌표로 하는 점이 사각형에 겹치는가
 		
-//		Scanner scan13 = new Scanner(System.in);
-//		int four = scan13.nextInt();
-//		int five = scan13.nextInt();
-//		int x1 = 10;
-//		int y1 = 20;
-//		int x2 = 90;
-//		int y2 = 100;
-//		if (four >= x1 && four <= x2) {
-//			if (five >=y1 && five <= y2) {
-//				System.out.println("겹칩니다");
-//			}
-//		} else {
-//			System.out.println("안겹칩니다");
-//		}
+		Scanner scan13 = new Scanner(System.in);
+		int four = scan13.nextInt();
+		int five = scan13.nextInt();
+		int x1 = 10;
+		int y1 = 20;
+		int x2 = 90;
+		int y2 = 100;
+		if (four >= x1 && four <= x2) {
+			if (five >=y1 && five <= y2) {
+				System.out.println("겹칩니다");
+			} else {
+				System.out.println("안겹칩니다");
+			}
+		} else {
+			System.out.println("안겹칩니다");
+		}
 		
 		
 		

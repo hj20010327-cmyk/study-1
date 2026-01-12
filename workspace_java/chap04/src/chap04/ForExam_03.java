@@ -208,30 +208,67 @@ public class ForExam_03 {
 				}
 			}
 		}
-        
+        System.out.println("문제3");
         // 문제3
         // 구구단 3단씩 옆으로 출력
-        // 2x1=2 3x1=3 4x1=4
-        // 2x2=4 3x2=6 4x2=8
+        // 2x1=2 3x1=3 4x1=4     t * p 
+        // 2x2=4 3x2=6 4x2=8	t = t+2
         // 2x3=6...
-        t = 2;
-        p = 1;
-		for (p = 1; p <= 9; p++) {
-			for (t = 2; t<=9; t++) {
-				int o = t * p;
-				if (t == 9) {
-				System.out.println(t + "x" + p + " = " + o);
-				} else {
-					System.out.print(t + "x" + p + " = " + o + " ");
-				}
-			}
-			
-		}
+       
+//        int o = 0;
+//		t = 0;
+//		p = 0;
+//		k = 0;
+//		for(t = 2; t <= 9; t += 3) {
+//			for(p = 1; p <= 9; p++) {
+//				for(k = t; k < t + 3 && k <= 9; k++) {
+//					o = k * p;
+//					System.out.print(k + " X " + p + " = " + o + " ");
+//				}
+//				System.out.println();
+//			}
+//			System.out.println();
+//		}
+//        int j = 2;
+//        for (int g= 1; g <=9; g++) {
+//        	for (int h=j; h<=j+3-1; h++) {
+//        		System.out.print(h + "x"+g+"="+(h*g)+" ");
+//        	}
+//        	System.out.println();
+//        }
+//        j = j+3;
+//        for (int g= 1; g <=9; g++) {
+//        	for (int h=j; h<=j+3-1; h++) {
+//        		System.out.print(h + "x"+g+"="+(h*g)+" ");
+//        	}
+//        	System.out.println();
+//        }
+//        j = j+3;
+//        for (int g= 1; g <=9; g++) {
+//        	for (int h=j; h<=j+3-1; h++) {
+//        		System.out.print(h + "x"+g+"="+(h*g)+" ");
+//        	}
+//        	System.out.println();
+//        }
+        System.out.println("-- 문제 3 --");
+        for (int j=2; j<=9; j = j+3) {
+        	for(int g=1; g<=9; g++ ) {
+        		for (int h=j; h<=(j+3-1); h++) {
+        			if (h<=9) {
+        				System.out.print(h + "x"+g+"="+(h*g)+" ");
+        			}
+        		}
+        		System.out.println();
+        	}
+        	System.out.println();
+        }
+        
         // 문제4
         // 주사위 2개를 굴려서
         // 나올 수 있는 모든 조합 출력
         // [1,1] [1,2] [6,6]
 		
+		System.out.println();
 		int dice1;
 		int dice2;
 		for (dice1 = 1; dice1 <= 6; dice1++) {

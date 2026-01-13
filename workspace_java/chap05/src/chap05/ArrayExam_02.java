@@ -146,13 +146,14 @@ public class ArrayExam_02 {
 		// 문제 3
 		// 7,12,8을 순서대로 저장한 배열이 있을때 
 		// 다른 배열에 거꾸로 8, 12, 7로 저장되게
-		System.out.println("------ 문제3 -------");
+		System.out.println("------ 문제3 -------");   
 		int[] q2 = new int[q.length];
 		for(i=0; i<q.length; i++) {
-			
-		
+			q2[i] = q1[q1.length - 1 - i];
 		}
-		
+		for(i=0; i<q2.length; i++) {
+			System.out.println(q2[i]);
+		}
 		
 		
 		
@@ -198,15 +199,59 @@ public class ArrayExam_02 {
 		 * 완주 목록 {2,4,5,1}
 		 */
 		System.out.println("-----문제 5------");
-		int[] mar = {1,2,3,4,5};
+		int sum1 = 0;
+		int sum2 = 0;
+		int[] mar = {1,2,3,4,5};    // 두 배열중에 하나만 없으니까 두 배열에 있는 수 다 더해서 빼면 남은 수 나옴
 		int[] mar1 = {2,4,5,1};
+		for (i =0; i<mar.length; i++) {
+			sum1 += mar[i];  // mar의 모든 수 더하기
+		}
+		for (i=0; i<mar1.length; i++) {
+			sum2 += mar1[i]; // mar1의 모든 수 더하기
+		}
+		int answer = sum1 - sum2;    
+		System.out.println("완주 하지 못한 선수 등번호: " + answer + "번");
 		
-		
-		
+		System.out.println("-------다른방법 이게 더 맞는듯..?-------");
+		int j=0;
+		for (i=0; i<mar.length; i++) { // mar에서 한 명씩 비교
+			boolean x= false;		// x에다가 false를 한명씩 비교할 때마다 주고
+			for (j=0; j<mar1.length; j++) { // mar의 한명과 mar1의 모든 인원 비교
+				if (mar[i] == mar1[j]) { // mar[i]의 값과 mar1[j]의 값이 같으면
+					x = true;			// boolean 타입인 변수 x를 참으로 변경
+				}						// 같으면 x는 true가 되니 mar[i]에서 하나남은 3은 false
+			}
+			if (x != true) {  	// 그럼 x가 true가 아닌것은 3만 남으니 조건식 써서 mar[i] 출력 
+				System.out.println("완주 하지 못한 선수 등번호: " +mar[i] + "번");  // 다른 수들은 같은게 있으니까 안나옴
+			}
+		}
 		
 		// 문제 6
 		// {3,4,7,5,1,4,6}
 		// 여기서 가장 큰 수 찾기
+		System.out.println("--------문제 6 --------");
+		// 하나하나 비교를 해야되나?
+		int[] big = {3,4,7,5,1,4,6};
+		// 하나씩 비교 해보면 big[0],big[1] 큰수 남기고
+		// big[1]이 남고 big[1] big[2] 또 큰수가 남고
+		// 이러면 big[i]  big[i+1] 둘 중에 큰게 남아야돼
+		// if? big[1] < big[2] big[2]
+//		int result = 0; // 이러면 그냥 0인데?
+//		for(i=0; i<big.length; i++) {
+//			if(big[i]>big[i+1]) {			
+//				result = big[i];
+//			}
+//		}
+//		System.out.println(result);
+		
+		
+		int result = big[0];  //처음 값이랑 계속 비교할수 있네
+		for(i=0; i<big.length; i++) {
+			if(big[i]>result) {
+				result = big[i]; // 앞에 값 보다 뒤에값이 크면 계속 덮어쓰기
+			}
+		}
+		System.out.println(result);
 		
 	}
 

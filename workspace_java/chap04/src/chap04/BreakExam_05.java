@@ -1,5 +1,7 @@
 package chap04;
 
+import java.util.Scanner;
+
 public class BreakExam_05 {
 
 	public static void main(String[] args) {
@@ -66,9 +68,77 @@ public class BreakExam_05 {
 		// 		예금 : 음수 불가
 		// 		출금 : 음수 불가 + 잔고초과 불가
 		//		메뉴 외 선택 불가
+//		Scanner scan = new Scanner(System.in);
+//		int w;
+//		int m = 10000;
+//		int r;
+//		r= 0;
+//		do {
+//			System.out.println("-----------------------------------");
+//			System.out.println("1.예금 | 2.출금 | 3.잔고 | 4.종료");
+//			System.out.println("-----------------------------------");
+//			w = scan.nextInt();
+//			System.out.println("선택 > " + w);
+//			if (w == 1) {
+//				 System.out.println("예금액 > " + m);
+//			} else if (w == 2) {
+//				r = scan.nextInt();
+//				m -= r;
+//				System.out.println("출금액 > " + r);
+//				
+//			} else if (w == 3) {
+//				System.out.println("잔고 > " + m);
+//			}
+//		} while (w != 4); {
+//		
+//		}
+//		System.out.println("종료합니다");
+		Scanner scan = new Scanner(System.in);
+		int w;
+		int m = 0;
+		int r;
+		int t;
+		t=0;
+		r= 0;
+		do {
+			System.out.println("-----------------------------------");
+			System.out.println("1.예금 | 2.출금 | 3.잔고 | 4.종료");
+			System.out.println("-----------------------------------");
+			w = scan.nextInt();
+			System.out.println("선택 > " + w);
+			if (w == 1) {
+				t = scan.nextInt();
+				if (t < 0) { // 음수일때
+					System.out.println("금액을 제대로 입력해주세요");
+				} else if (t > 10000000) { // 일일 예금 초과
+					System.out.println("1회 예금 금액을 초과했습니다");
+				} else {
+				m += t;
+				System.out.println("예금액 > " + t);
+				}
+			} else if (w == 2) {
+				r = scan.nextInt();
+				if (r <0) { // 음수 일때
+					System.out.println("금액을 제대로 입력해주세요");
+				} else if (r > t) { // 잔액 부족할 때
+					System.out.println("잔액이 부족합니다");
+				} else {
+				m -= r;
+				System.out.println("출금액 > " + r);
+				}
+			} else if (w == 3) {
+				System.out.println("잔고 > " + m);
+			} else if (w > 4 || w <= 0){
+				System.out.println("메뉴를 다시 입력해주세요");
+			}
+		} while (w != 4); 
+		System.out.println("종료합니다");
 		
 		
 		
-	}
+		
+		
+	}	
+	
 
 }

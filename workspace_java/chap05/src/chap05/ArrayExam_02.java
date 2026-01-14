@@ -181,7 +181,6 @@ public class ArrayExam_02 {
 		System.out.println("----- 문제4-2-------");
 		int[] a33 = {3,4,7,5,1,4,6};
 		cnt = 0;
-		String str1 = "";
 		for(i=0; i<a33.length; i++) {
 			if(a33[i]>4) {
 				cnt++;
@@ -219,12 +218,31 @@ public class ArrayExam_02 {
 			for (j=0; j<mar1.length; j++) { // mar의 한명과 mar1의 모든 인원 비교
 				if (mar[i] == mar1[j]) { // mar[i]의 값과 mar1[j]의 값이 같으면
 					x = true;			// boolean 타입인 변수 x를 참으로 변경
+					break;
 				}						// 같으면 x는 true가 되니 mar[i]에서 하나남은 3은 false
 			}
 			if (x != true) {  	// 그럼 x가 true가 아닌것은 3만 남으니 조건식 써서 mar[i] 출력 
 				System.out.println("완주 하지 못한 선수 등번호: " +mar[i] + "번");  // 다른 수들은 같은게 있으니까 안나옴
 			}
 		}
+		System.out.println("------문제5번 이름으로--------");
+		String sum3 = "";
+		String sum4 = "";
+		String[] mar3 = {"용상", "령", "민호","세정","현일"};    // 두 배열중에 하나만 없으니까 두 배열에 있는 수 다 더해서 빼면 남은 수 나옴
+		String[] mar4 = {"령","세정","현일","용상"};
+		for (i=0; i<mar3.length; i++) { // mar3에서 한 명씩 비교
+			boolean x= false;		// x에다가 false를 한명씩 비교할 때마다 주고
+			for (j=0; j<mar4.length; j++) { // mar3의 한명과 mar4의 모든 인원 비교
+				if (mar3[i].equals(mar4[j])) { // mar3[i]의 값과 mar4[j]의 값이 같으면
+					x = true;			// boolean 타입인 변수 x를 참으로 변경
+					break;
+				}						// 같으면 x는 true가 되니 mar3[i]에서 하나남은 3은 false
+			}
+			if (x != true) {  	// 그럼 x가 true가 아닌것은 3만 남으니 조건식 써서 mar3[i] 출력 
+				System.out.println("완주 하지 못한 선수: " +mar3[i]);  // 다른 수들은 같은게 있으니까 안나옴
+			}
+		}
+		
 		
 		// 문제 6
 		// {3,4,7,5,1,4,6}
@@ -251,7 +269,7 @@ public class ArrayExam_02 {
 				result = big[i]; // 앞에 값 보다 뒤에값이 크면 계속 덮어쓰기
 			}
 		}
-		System.out.println(result);
+		System.out.println("가장 큰 수: " + result);
 		
 	}
 

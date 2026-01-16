@@ -369,45 +369,82 @@ public class ArrayExam_02 {
 			System.out.print(w1[i]);
 		}
 		System.out.println();
-		// 10-3 : 숫자2개 이상, 대/소문자 각 1개 이상
+		// 10-3 : 숫자2개 이상, 대/소문자 각 1개 이상 비밀번호 8자리
 //		double uu = Math.random();
 //		double uu1 = uu*5;			
 //		int gg = (int)uu1+2;
-		int[] ww = new int[6];
-		for(i=0; i<ww.length; i++) {
-			double u = Math.random();
-			double u1 = u*10;
-			int g = (int)u1;
-			ww[i] = g;
+//		int[] ww = new int[6];
+//		for(i=0; i<ww.length; i++) {
+//			double u = Math.random();
+//			double u1 = u*10;
+//			int g = (int)u1;
+//			ww[i] = g;
+//		}
+//		for(j=0; j<ww.length; j++) {
+//			if(ww.length>=2) {
+//				System.out.print(ww[j]);
+//			}
+//		}
+//		
+////		double dd = Math.random();
+////		double dd1 = dd*5;
+////		int ii1 = (int)dd1+1;
+//		char[] ch  = new char[1];
+//		
+//		for(i=0; i<ch.length; i++) {
+//			double o = Math.random();
+//			double o1 = o*26;
+//			int o12 = (int)o1+97;
+//			char v = (char)o12;
+//			w1[i]= v;
+//			System.out.print(w1[i]);
+//		}
+//		char[] bigch = new char[1];
+//		for (i=0; i<bigch.length; i++) {
+//			double oo = Math.random();
+//			double oo1 =  oo*26;
+//			int oo2 = (int)oo1+65;
+//			char vv = (char)oo2;
+//			bigch[i] = vv;
+//			System.out.print(bigch[i]);
+//		}
+		
+		char[] password = new char[8];
+		int rand = 0;
+		for(i=0; i<2; i++) {  // 숫자 두개 일단 생성
+			password[rand] = (char)((int)(Math.random()*10) + 48);
+			rand++;
 		}
-		for(j=0; j<ww.length; j++) {
-			if(ww.length>=2) {
-				System.out.print(ww[j]);
+		password[rand]= (char)((int)(Math.random()*26)+97);  // 소문자 하나 생성
+		rand++;
+		password[rand] = (char)((int)(Math.random()*26)+65);  // 대문자 하나 생성
+		rand++;
+		
+		for(j=rand; j<password.length; j++) {	// 남은 자리 랜덤 생성
+			int tp = (int)(Math.random()*3);  // 0~2까지 랜덤으로 뽑아서
+			
+			if(tp == 0) {  			// tp가 0이면 숫자 생성
+				password[j] = (char)((int)(Math.random() * 10) + 48);
+			} else if (tp == 1) {	// tp가 1이면 소문자 생성
+				password[j] = (char)((int)(Math.random() * 26) + 97);
+			} else {				// tp가 2면 대문자 생성
+				password[j] = (char)((int)(Math.random() * 26) + 65);
 			}
 		}
 		
-//		double dd = Math.random();
-//		double dd1 = dd*5;
-//		int ii1 = (int)dd1+1;
-		char[] ch  = new char[1];
+		for (i=0; i<password.length; i++) {		// 나온 배열들 섞기
+			int k = (int)(Math.random()* password.length);	
+			// 변수 k를 배열 수가 랜덤으로 나오게 저장
+			char han = password[i];		// i일때 변수로 저장
+			password[i] = password[k];	// 랜덤으로 나온 한개를 i번째로 저장
+			password[k] = han;			// 변수로 저장했던 i번째를 k번째로 저장
+		}
 		
-		for(i=0; i<ch.length; i++) {
-			double o = Math.random();
-			double o1 = o*26;
-			int o12 = (int)o1+97;
-			char v = (char)o12;
-			w1[i]= v;
-			System.out.print(w1[i]);
+		System.out.print("임시 비밀번호: ");
+		for (i=0; i<password.length; i++) {
+			System.out.print(password[i]);
 		}
-		char[] bigch = new char[1];
-		for (i=0; i<bigch.length; i++) {
-			double oo = Math.random();
-			double oo1 =  oo*26;
-			int oo2 = (int)oo1+65;
-			char vv = (char)oo2;
-			bigch[i] = vv;
-			System.out.print(bigch[i]);
-		}
+		
 		
 		System.out.println();
 		// 문제 11

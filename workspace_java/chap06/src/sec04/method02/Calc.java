@@ -1,4 +1,4 @@
-package sec04;
+package sec04.method02;
 
 public class Calc {
 	
@@ -59,5 +59,27 @@ public class Calc {
 //			result1 = (double)x / y;
 //		}
 //		return result1;
+		
+		/*
+		Calc 클래스에 숫자와 문자를 받을수 있는 
+		scanner ,더하기, 빼기 , 나누기 , 곱하기 Method를 만든다.
+
+		CalcExam 클래스 에서 
+
+		scanner 메소드를 호출하여 
+		1번째 숫자 , 2번째 연산자 , 3번째 숫자 를 입력하여 ArrayList 로 return 을 받는다.
+		연산자를 if 하여 연산자에 맞는 메소드에 숫자를 보내 리턴받고 출력한다. 
+
+		scanner 은 String 으로 받아서 형변환 가능 , 0번째 숫자  , 1번째 문자 , 2번째 숫자 로 받아도 됨
+
+		예 
+
+		>"1 * 2"
+
+		>"2 입니다."
+		*/
+		
+		
+		
 	}
 }

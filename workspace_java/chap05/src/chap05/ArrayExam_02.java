@@ -410,17 +410,17 @@ public class ArrayExam_02 {
 //		}
 		
 		char[] password = new char[8];
-		int rand = 0;
+		int count = 0;
 		for(i=0; i<2; i++) {  // 숫자 두개 일단 생성
-			password[rand] = (char)((int)(Math.random()*10) + 48);
-			rand++;
+			password[count] = (char)((int)(Math.random()*10) + 48);
+			count++;
 		}
-		password[rand]= (char)((int)(Math.random()*26)+97);  // 소문자 하나 생성
-		rand++;
-		password[rand] = (char)((int)(Math.random()*26)+65);  // 대문자 하나 생성
-		rand++;
+		password[count]= (char)((int)(Math.random()*26)+97);  // 소문자 하나 생성
+		count++;
+		password[count] = (char)((int)(Math.random()*26)+65);  // 대문자 하나 생성
+		count++;
 		
-		for(j=rand; j<password.length; j++) {	// 남은 자리 랜덤 생성
+		for(j=count; j<password.length; j++) {	// 남은 자리 랜덤 생성
 			int tp = (int)(Math.random()*3);  // 0~2까지 랜덤으로 뽑아서
 			
 			if(tp == 0) {  			// tp가 0이면 숫자 생성
@@ -432,7 +432,7 @@ public class ArrayExam_02 {
 			}
 		}
 		
-		for (i=0; i<password.length; i++) {		// 나온 배열들 섞기
+		for (i=0; i<password.length; i++) {		// 나온 것들 섞기
 			int k = (int)(Math.random()* password.length);	
 			// 변수 k를 배열 수가 랜덤으로 나오게 저장
 			char han = password[i];		// i일때 변수로 저장

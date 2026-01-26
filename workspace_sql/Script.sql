@@ -503,53 +503,234 @@ SELECT to_char(empno) as empno,
 		END AS chg_mgr
 FROM emp;
 
+SELECT ename, length(ename) FROM emp;
+
+SELECT sum(comm) FROM emp;
+
+SELECT sum(sal) FROM emp;
+--SELECT sum(sal), sal FROM emp;
+
+SELECT count(sal) FROM emp;
+SELECT count(comm) FROM emp;
+SELECT count(*) FROM emp;
+
+SELECT count(*) FROM emp
+WHERE deptno = 30;
+
+SELECT max(sal) FROM emp;
+SELECT min(sal) FROM emp;
+
+SELECT 
+	max(sal), min(sal), min(hiredate), min(comm), 
+	count(*), SUM(sal)
+	FROM emp;
+
+SELECT avg(sal) FROM emp;
+
+-- 이름에 a가 들어가는 사람은 몇명?
+--'a'
+SELECT count(*) FROM emp
+WHERE upper(ename) like upper('%a%');
+
+SELECT DISTINCT deptno FROM emp;
+
+----------------------
+-- group by
+/*
+ * 제약 1. select에는 group by에 적은 컬럼 명만 가능하다
+ * 제약 2. select에 집계 함수는 가능하다
+ */
+SELECT deptno
+FROM emp
+group BY deptno;
+
+SELECT deptno, count(*), sum(sal)
+FROM emp
+group BY deptno;
+
+SELECT deptno, job
+FROM emp
+GROUP BY deptno, job;
+
+SELECT deptno, job, count(*)
+FROM emp
+GROUP BY deptno, job;
+
+--SELECT * FROM emp
+--WHERE avg(sal) < sal;
+
+SELECT deptno, job
+FROM emp
+WHERE deptno = 10
+GROUP BY deptno, job; 
+
+SELECT deptno, job
+FROM emp
+--WHERE deptno = 10
+GROUP BY deptno, job 
+HAVING deptno = 10;
+
+SELECT deptno, job, avg(sal)
+FROM emp
+GROUP BY deptno, job;
+
+SELECT deptno, job, avg(sal)
+FROM emp
+GROUP BY deptno, job
+	HAVING avg(sal) > 2000;
+-- having만 존재할 수 없다(group by랑 같이 써야함)
+
+-- job별로 3명 이상인 job과 count(*)를 표시
+SELECT job, count(*) cnt
+FROM emp
+--WHERE cnt >= 3; 	--  as를 써도 where에 못씀
+--WHERE count(*) >= 3; -- 집계함수는 where에 못씀
+WHERE sal > 1000
+group BY job
+	HAVING count(*) >= 3; 
+
+-- 실행 순서
+/* 5 */SELECT job, 1 AS cnt
+/* 1 */FROM emp
+/* 2 */WHERE sal > 1000
+/* 3 */GROUP BY job
+/* 4 */HAVING count(*) >= 3
+/* 6 */ORDER BY cnt DESC;
+
+SELECT * FROM dept;
+SELECT * FROM emp;
+-- 모든 조합 뽑기
+SELECT * FROM emp, dept;
+
+SELECT * FROM emp, dept
+ORDER BY empno;
+
+SELECT deptno FROM emp
+WHERE ename = 'SMITH';
+
+SELECT * FROM dept
+WHERE deptno = 20;
+
+SELECT *
+FROM emp, dept
+WHERE emp.deptno = dept.deptno;
+
+SELECT *
+FROM emp e, dept d
+--WHERE emp.deptno = d.deptno;
+WHERE e.deptno = d.deptno;
+
+--SELECT ename, * FROM emp; --이거 안됨
+SELECT ename, emp.* FROM emp;
+
+SELECT scott1_11.emp.ename, emp.* FROM scott1_11.emp;
+-- scheme
+
+-- ambiguously error
+SELECT ename, deptno
+FROM emp e, dept d
+WHERE e.deptno = d.deptno;
+
+SELECT ename, e.deptno, e.*
+FROM emp e, dept d
+WHERE e.deptno = d.deptno;
+
+SELECT * FROM salgrade;
+
+--800
+SELECT sal FROM emp
+WHERE ename = 'SMITH';
+
+SELECT ename, sal, grade, losal, hisal
+FROM emp e, salgrade s
+where e.sal >= s.losal AND e.sal <= s.hisal;
+
+-- 7902
+SELECT mgr FROM emp
+WHERE ename = 'SMITH';
+
+SELECT * FROM emp WHERE empno = 7902;
+
+-- king은 mgr이 null이어서 결과에서 빠졌다
+SELECT e1.empno , e1.ename, e1.mgr
+	, e2.empno, e2.ename, e2.mgr
+	FROM emp e1, emp e2
+WHERE e1.mgr = e2.empno;
+
+SELECT *
+FROM emp e NATURAL join dept d;
+
+SELECT deptno
+FROM emp e NATURAL join dept d;
+
+SELECT deptno, e.empno, dname
+FROM emp e JOIN dept d using(deptno);
+
+SELECT d.deptno, d.*
+FROM emp e JOIN dept d ON(e.deptno = d.deptno)
+WHERE sal <= 2000;
+
+SELECT *
+FROM emp e1 JOIN emp e2 on(e1.mgr = e2.empno);
+
+SELECT *
+FROM emp e1 LEFT OUTER JOIN emp e2 on(e1.mgr = e2.empno);
+
+SELECT *
+FROM emp e1 right OUTER JOIN emp e2 on(e1.mgr = e2.empno);
+
+SELECT *
+FROM emp e1 full OUTER JOIN emp e2 on(e1.mgr = e2.empno);
+
+-- 퀴즈 
+-- 각 부서별로 
+-- 가장 높은 급여,
+-- 가장 낮은 급여,
+-- 급여 차액,
+-- 부서 번호
+-- HINT : 결과는 총 3줄
+
+SELECT max(sal), min(sal), max(sal)-min(sal), deptno
+FROM emp
+GROUP BY deptno;
+
+--226p q1
+SELECT e.deptno, d.dname, e.empno, e.ename, e.sal
+FROM emp e, dept d
+WHERE e.deptno = d.deptno 
+AND e.sal>2000
+GROUP BY e.deptno, d.dname, e.empno, e.ename, e.sal
+ORDER BY deptno;
+
+--q2
+SELECT d.deptno, d.dname, floor(avg(sal)), max(sal), min(sal), count(*)
+FROM emp e, dept d
+WHERE e.deptno = d.deptno
+GROUP BY d.deptno, d.dname;
+
+--q3
+SELECT d.deptno, d.dname, e.empno, e.ename, e.job, e.sal
+FROM dept d LEFT OUTER JOIN emp e on(e.deptno = d.deptno);
+--WHERE d.deptno = e.deptno
+--GROUP BY d.deptno, d.dname, e.empno, e.ename, e.job, e.sal;
+
+-- q4
+-- 모든 부서정보 사원정보 급여 등급 정보
+-- 각 사원의 직속상관 정보를 부서번호 사원번호 순서로 정렬
+
+SELECT d.deptno, d.dname, e1.empno, e1.ename, e1.mgr, e1.sal
+,e1.deptno deptno_1, sg.losal, sg.hisal, sg.grade,
+e2.empno mgr_empno, e2.ename mgr_ename  
+--FROM emp e, dept d, salgrade sg
+FROM dept d LEFT OUTER JOIN emp e1 
+on(e1.deptno = d.deptno)
+LEFT OUTER JOIN emp e2 
+ON(e1.mgr = e2.empno)
+LEFT OUTER JOIN salgrade sg
+on(e1.sal >= sg.losal AND e1.sal <= sg.hisal)
+ORDER BY deptno, empno;
 
 
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+SELECT * FROM salgrade;
 
 

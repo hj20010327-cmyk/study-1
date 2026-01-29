@@ -1388,14 +1388,51 @@ SELECT * FROM dept_fk;
 
 COMMIT;
 
+SELECT * FROM salgrade;
 
+SELECT * FROM USER_tables;
 
+CREATE TABLE users (
+	id	varchar2(14)	NOT NULL,
+	name	varchar2(14)	NULL,
+	phone	number(10)	NULL,
+	todo	varchar2(14)	NULL
+);
 
+CREATE TABLE todo (
+	todo	varchar2(14)	NULL,
+	todo_date	date	NULL,
+	wakeup	number(2)	NULL,
+	good	varchar(3)	NOT NULL
+);
 
+CREATE TABLE good (
+	good	varchar(3)	NOT NULL
+);
 
+ALTER TABLE users ADD CONSTRAINT PK_USER PRIMARY KEY (
+	id
+);
 
+ALTER TABLE todo ADD CONSTRAINT PK_TODO PRIMARY KEY (
+	todo
+);
 
+ALTER TABLE good ADD CONSTRAINT PK_GOOD PRIMARY KEY (
+	good
+);
 
+ALTER TABLE users ADD CONSTRAINT FK_todo_TO_user_1 FOREIGN KEY (
+	todo
+)
 
+ALTER TABLE todo ADD CONSTRAINT FK_good_TO_todo_1 FOREIGN KEY (
+	good
+)
 
+SELECT * FROM users;
+
+SELECT * FROM todo;
+
+SELECT * FROM good;
 

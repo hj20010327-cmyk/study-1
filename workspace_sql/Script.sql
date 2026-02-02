@@ -1436,3 +1436,25 @@ SELECT * FROM todo;
 
 SELECT * FROM good;
 
+COMMIT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arr = [1,2,3];
+        arr[10] = 100;
+        arr['주소'] = '천안'; // length에 영향 없음
+        console.log(arr.length)
+        console.log(arr)
+        
+        console.log('---------------')
+        for(let i=0; i<arr.length; i++) {
+            console.log(arr[i])
+        }
+
+        console.log('---------------')
+        // for in
+        // in 앞의 변수에 현재 index를 저장
+        for(let i in arr) {
+            console.log('index:', i)
+            console.log('값: ', arr[i])
+        }
+        
+        console.log('---------------')
+        // for of
+        // of 앞의 변수에 현재 값을 저장
+        // java의 향상된 for문과 비슷
+        // '주소'와 같이 숫자가 아닌 index는 못 가져옴
+        for( let obj of arr ) {
+            console.log('obj', obj)
+        }
+
+        // 함수 배우고 올게요~
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

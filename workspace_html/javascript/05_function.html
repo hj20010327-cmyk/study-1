@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 함수
+        // function 키워드로 함수 선언
+        // 전달인자에는 타입을 적지 않는다
+        function plus(x, y) {
+            console.log('x', x)
+            console.log('y', y)
+
+            const z = x + y;
+            return z;
+        }
+
+        const z = plus(2, 3)
+        console.log('z: ', z)
+
+        const z2 = plus(2, plus(2, 3))
+        console.log('z2:', z2)
+
+        console.log('------------------')
+        // 전달인자를 안줘도 에러 없음
+        // 값은 undefined
+        let a = plus();
+        console.log('a: ', a)
+
+        console.log('------------------')
+        a = plus(4);
+        console.log('a: ', a)
+
+        // 전달인자를 많이 줘도
+        // 받을 만큼만 가져간다
+        console.log('------------------')
+        a = plus(10, 20, 30, 40)
+        console.log('a: ', a)
+
+        function plus2(x, y) {
+            // if(x == undefined){
+            //     x = 0;
+            // }
+            // if(y == undefined) {
+            //     y = 0;
+            // }
+
+            if (!x) {
+                console.log('참', x);
+                x = 0
+
+            }
+            // if(!y){
+            //     y = 0
+            // }
+            if (!y) y = 0
+            return x + y;
+        }
+        console.log(plus2(0));
+
+        // 전달인자가 없을 때의 기본 값
+        // 만약에 있으면 그 값 사용
+        function plus3(x = 0, y = 0) {
+            console.log('x:', x)
+            console.log('y:', y)
+            return x + y;
+        }
+        console.log(plus3(2))
+
+        let c = [1, 2, 3]
+        function fn_arr(b) {
+            console.log(typeof b)
+            console.log(b[0])
+        }
+        fn_arr(c)
+        console.log(1, 2, 3, 4, 5)
+
+        // spread 연산자
+        // 전달인자의 경우 모든 전달인자를 배열로 관리
+        function log(...obj) {
+            console.log(typeof obj)
+            console.log(obj[0])
+        }
+        log(1, 2, 3, 4, 5)
+        // spread 연산자
+        // 사용할 때는 풀어서 사용
+        log(...c)               // 이거랑
+        log(c[0], c[1], c[2])     // 이거랑 같음
+        log(1, 2, 3)            // 이거랑 같음
+
+        //System.out.printf("%d, %d", 1, 2)
+
+        function print() {
+            console.log("print 실행")
+        }
+        print()
+
+        // 함수도 상단으로 호이스팅되고
+        // 같은 함수명의 함수는 덮어쓰기 됨
+        function print() {
+            console.log("두번째 print 실행")
+        }
+        print()
+
+        var f = 10
+        var f = 100
+
+        function print() {
+            console.log("print 실행")
+        }
+        function print() {
+            console.log("두번째 print 실행")
+        }
+        print()
+        print()
+
+        let p = print;
+        console.log('typeof print:', typeof print)
+        console.log('typeof p:', typeof p)
+        p()
+
+        let l = console.log
+        l(1, 2, 3)
+
+        // 오버로딩
+        // 지원하지 않음
+        function over() {
+
+        }
+        function over(x) {
+
+        }
+
+        // 익명 함수
+        let no_name = function () {
+            console.log('익명함수')
+        }
+        // 이것과 같다
+        // function no_name(){
+        //     console.log('익명함수')
+        // }
+        
+        no_name()
+
+        console.log('--------------------')
+        function test(a){
+            a()
+        }
+        test(no_name)
+
+        test(function () {
+            console.log('익명함수')
+        })
+
+        // setTimeout(함수, 시간ms)
+        setTimeout(no_name, 2000);
+        setTimeout(function () {
+            console.log('익명함수3')
+        }, 3000);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

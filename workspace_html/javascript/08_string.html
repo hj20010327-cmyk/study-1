@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const str = "옳거니 니가 나를 알아보누나"
+        
+        console.log(str[0])
+        // length
+        // 문자열의 길이
+        console.log('str.length:',str.length)
+
+        // indexOf
+        // 동일한 글씨가 있는지 확인
+        // 있으면 : 첫 글자의 index 반환
+        // 없으면 : -1 반환
+        console.log("str.indexOf('누나')",str.indexOf('누나'))
+        console.log("str.indexOf('형아')",str.indexOf('형아'))
+
+        // replace
+        // 첫번째 전달인자를 두번째 전달인자로 바꿔준다
+        // 단, 처음만나는 것만 바꿔준다
+        let str2 = str.replace('나','너')
+        console.log('str:',str)
+        console.log('str2:',str2)
+        
+        // 정규 표현식을 이용해서 전체 바꾸는 방법
+        str2 = str.replace(/나/g,'너')
+        console.log('str2:',str2)
+        
+        // slice(시작index, 끝index)
+        // 시작index부터 끝index 바로 앞까지 복사
+        str2 = str.slice(4,6)
+        console.log('str:',str)
+        console.log('str2:',str2)
+        
+        // split
+        str2 = str.split(' ')
+        console.log('str2:',str2)
+        
+        // substr
+        // 시작index, count
+        str2 = str.substr(4, 2)
+        console.log('str2:',str2)
+        
+        // substring
+        // 시작index, 끝index 바로 앞
+        str2 = str.substring(4, 6)
+        console.log('str:',str)
+        console.log('str2:',str2)
+        
+        // trim
+        let str3 = "   1 2  3    ";
+        str2 = str3.trim()
+        console.log(`[${str2}]`)
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

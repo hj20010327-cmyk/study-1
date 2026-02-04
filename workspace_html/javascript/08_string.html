@@ -57,6 +57,81 @@
         console.log(`[${str2}]`)
 
 
+        // 문제 1
+        // 어떤 이메일이라도 id를 출력해보자
+        // study.todair@gmail.com
+
+        let email = 'lys010327@naver.com'
+        let email1 = email.split('@')
+        console.log(email1[0])
+
+
+        // 문제 2
+        // 보안상 이메일의 앞 두자리를 제외하고 * 처리
+        // todair@naver.com >> to****@naver.com
+        // study.todair@gmail.com >> st**********@gmail.com
+        let email2 = email1[0].substr(0,2)
+        console.log(email2)
+        // let email3 = email1[0].replace(email1[0].substr(2),'*')
+        let email3 = email1[0].substr(2)
+        // 잘라서 바꿔야지
+        // 아이디 따고 두글자 뽑고
+        // length-2
+        // *을 + 반복하면서 붙혀
+
+        for(let i = 0; i<email3.length; i++){
+            email2 += '*';
+        }
+        let result = email2 + "@" + email1[1]
+        console.log(result)
+        // console.log(email3)
+
+
+        // 문제 3
+        // 인터넷 주소 중에서 2차 도메인 출력
+        // comic.naver.com >> naver
+        // human.or.kr >> or
+
+        let add = 'comic.naver.com'
+        let add1 = add.split('.')
+        console.log(add1[add1.length-2])
+        let add2 = 'job.human.or.kr'
+        let add3 = add2.split('.')
+        console.log(add3[add3.length-2])
+
+        // 문제 4
+        // 네이버 검색 url의 query string에서 검색어를 출력한다
+        // HINT : query= 옆에 있는 단어
+        // https://search.naver.com/search.naver?where=nexearch&
+        // sm=top_hty&fbm=0&ie=utf8&query=1234&ackey=po4zpvmy
+        // >> 1234
+
+        const url = 'https://www.google.com/search?oquery=1234&q=1234&gs_lcrp=EgZjaHJvbWUyDwgAEEUYORiDARixAxiABDINCAEQLhiDARixAxiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIGCAYQRRg8MgYIBxBFGDzSAQgxMTA3ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8&'
+        
+        const start = url.indexOf('query=')+"query=".length;
+        // 여기까지 query=까지를 찾았어
+        // & 전까지 구하고 싶어
+        const q = url.split('query=')
+        console.log(q[1])
+        const q1 = q[1].split('&')
+        console.log(q1[0])
+
+        // indexOf
+        // indexOf로 query= 검색해서 query= 길이만큼 더해주면 1까지 나옴
+        const idx = url.indexOf('query=') + 'query='.length 
+        console.log(idx)
+        // substring으로 query= 까지 날려버려
+        const sub = url.substring(idx)
+        console.log(sub)
+        // 살린거에서 & 찾아
+        const idx2 = sub.indexOf('&')
+        //
+        const result2 = sub.substring(0,idx2)
+        console.log(result2)
+
+
+
+
 
     </script>
 </head>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="msg">
+        <span>원래 </span> 있던 글씨
+    </div>
+
+    <script>
+        const msg = document.getElementById('msg')
+        console.log(msg)
+
+        // textContent
+        // 컨텐츠 영역의 소스 중에 text만 그대로 가져온다
+        console.log('msg.textContent', msg.textContent)
+
+        // innerText
+        // 브라우저에 보이는 그대로 text만 가져온다
+        // 브라우저가 보여줄 내용에 대한 계산이 끝나고
+        //      실제 표시하는 text를 가져온다
+        console.log('msg.innerText :', msg.innerText)
+
+        // innerHTML
+        // 컨텐츠 영역의 소스를 그대로 가져온다
+        console.log('msg.innerHTML :', msg.innerHTML)
+
+        // 변수에 넣으면
+        // 컨텐츠 내용을 변경해준다
+
+        // textContent, innerText : tag도 글씨로 인식한다
+        msg.textContent = "<h1>h1제목</h1>      a  b   c"
+        msg.innerText = "<h1>h1제목</h1>      a  b   c"
+
+        // innerHTML : tag는 tag로 인식한다
+        msg.innerHTML = "<h1>h1제목</h1> &gt;   &lt;   a  b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   c"
+        // 보안때문에 막힘
+        // msg.innerHTML = "<script>alert(1)< /script>"
+
+        msg.innerHTML += "d"
+        msg.innerHTML = "<a href='javascript:alert(1);alert(2);'>눌러봐</a>"    
+
+
+    </script>
+
+</body>
+
+</html>

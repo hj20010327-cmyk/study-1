@@ -86,6 +86,20 @@
         console.log(result)
         // console.log(email3)
 
+        let q2 = 'lys010327@naver.com'
+        let show = q2.substr(0,2)
+        let company = q2.substring(q2.indexOf('@'))
+        console.log(show, company)
+
+        // padStart. padEnd도 있지만(심지어 안배웠지만)
+        // id 길이 -
+        
+        let masking = ""
+        for(let i=0; i<q2.split('@')[0].length-2; i++){
+            masking += "*"
+        }
+        let a2 = show + masking + company
+        console.log('a2:',a2)
 
         // 문제 3
         // 인터넷 주소 중에서 2차 도메인 출력
@@ -108,7 +122,6 @@
 
         const url = 'https://www.google.com/search?oquery=1234&q=1234&gs_lcrp=EgZjaHJvbWUyDwgAEEUYORiDARixAxiABDINCAEQLhiDARixAxiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIGCAYQRRg8MgYIBxBFGDzSAQgxMTA3ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8&'
         
-        const start = url.indexOf('query=')+"query=".length;
         // 여기까지 query=까지를 찾았어
         // & 전까지 구하고 싶어
         const q = url.split('query=')
@@ -129,6 +142,46 @@
         const result2 = sub.substring(0,idx2)
         console.log(result2)
 
+
+        // 문제 5
+        // "2026-02-05 09:14:38"
+        // 월, 분을 출력하시오
+        
+        // split으로 푼거
+        let day = "2026-02-05 09:14:38"
+        const date = day.split('-')
+        
+        const min = day.split(':')
+        console.log('몇월?:',date[1]) 
+        console.log('몇분?:',min[1])
+
+        // indexOf로 푼거
+        const idx3 = day.indexOf('-') + 1
+        console.log(idx3)
+        const mon = day.substring(idx3)
+        console.log(mon)
+        const mon1 = mon.indexOf('-')
+        console.log(mon1)
+        const result3 = mon.substring(0,mon1)
+        console.log('resutl3:',result3)
+
+
+
+        // 문제 6
+        // "   abc  "
+        // 공백의 개수는?
+
+        // 좋지 않은 풀이
+        // let y = "   abc  "
+        // const t = y.split('abc')
+        // console.log(t)
+        // const count = t[0].length + t[1].length
+        // console.log('공백의 개수:',count)
+
+        // trim 써서 좋은
+        let q3 = '   abc  '
+        const d = q3.length - q3.trim().length
+        console.log("공백의 개수:",d)
 
 
 

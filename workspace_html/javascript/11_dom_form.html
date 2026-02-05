@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="id" value="abcd"><br>
+    <input type="password" id="pw"><br>
+    <input type="date" id="date"><br>
+    
+    <input type="radio" name="ai" value="1" checked>chatGPT
+    <input type="radio" name="ai" value="2">gemini
+    <input type="radio" name="ai" value="3">perplexity
+    <input type="radio" name="ai" value="4">claude 
+    <br>
+
+    <input type="checkbox" class="res" value="a">중국집
+    <input type="checkbox" class="res" value="b">한식
+    <input type="checkbox" class="res" value="c">일식
+    <br>
+
+
+    <script>
+        const text = document.querySelector('#id')
+        console.log('text.value',text.value)
+        
+        setTimeout(() => {
+            
+            console.log('text.value',text.value)
+            text.value = 12345
+            
+            const pw = document.querySelector('#pw')
+            console.log('pw.value',pw.value)
+            pw.value = 12345
+            
+            const date = document.querySelector('#date')
+            // console.log('date.value',date.value)
+            // 2026-02-05
+            const now = new Date()
+            // date.value = now.getfullYear()+'-'+(now.getMonth()+1)+'-'+now.getDate()
+            const y = now.getFullYear()
+            let m = now.getMonth() + 1
+            if(m < 10){
+                m = '0'+m
+            }
+            let d = now.getDate()
+            d = ('0'+d).slice(-2)
+            date.value = y + '-'+m + '-'+d
+            console.log('date.value',date.value)
+
+            date.value = now.toISOString().split('T')[0]
+
+            const radio = document.querySelector('[name=ai]:checked')
+            console.log(radio.value)
+
+            const radios = document.querySelectorAll('[name=ai]')
+            radios[1].checked = true
+            
+            let checks = document.querySelectorAll('.res:checked')
+            for(let i=0; i<checks.length; i++){
+                console.log(checks[i].value)
+            }
+
+
+        },1000*3)
+
+        
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

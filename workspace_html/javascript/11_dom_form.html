@@ -22,6 +22,26 @@
     <input type="checkbox" class="res" value="c">일식
     <br>
 
+    <select id="select">
+        <option value="1">html</option>
+        <option value="2">css</option>
+        <option value="3" selected>java</option>
+        <option value="4">db</option>
+        <option value="5">javascript</option>
+    </select>
+    <br>
+    <select id="select2">
+        <option value="h">html</option>
+        <option value="c">css</option>
+        <option value="j">java</option>
+        <option value="d">db</option>
+        <option value="js">javascript</option>
+    </select>
+    <br>
+
+    <textarea id="textarea">초기값</textarea>
+
+    <div id="view"></div>
 
     <script>
         const text = document.querySelector('#id')
@@ -60,20 +80,47 @@
             radios[1].checked = true
             
             let checks = document.querySelectorAll('.res:checked')
+            // let not_checks = document.querySelectorAll('.res:not(:checked)')
             for(let i=0; i<checks.length; i++){
                 console.log(checks[i].value)
+                checks[i].checked = false
             }
+
+            let checks2 = document.querySelectorAll('.res')
+            checks2[0].checked = true
+
+            for(let i=0; i<checks2.length; i++){
+                console.log(checks2[i].checked)
+            }
+
+            const select = document.querySelector('#select')
+            console.log(select.value)
+            
+            const option = document.querySelector('#select option:checked')
+            console.log(option.innerText)
+
+            select.value = 4
+
+            const textarea = document.getElementById('textarea')
+            console.log(textarea.value)
+
+            // textarea.value = '바뀐값<br>다음줄\n진짜 다음줄'
+
+            // innerText : 태그는 안되지만 \n은 적용된다
+            const view = document.querySelector('#view')
+            view.innerText = textarea.value
+            
+            // innerHTML
+            let html = textarea.value.replace(/\n/g,'<br>')
+            view.innerHTML = html
+            
+            const s2 = document.querySelector('#select2')
+            s2.value = 'c'
 
 
         },1000*3)
 
-        
-
-
-
-
-
-
+    
 
     </script>
 

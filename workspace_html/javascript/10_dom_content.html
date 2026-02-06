@@ -22,12 +22,20 @@
 
         </tbody>
     </table>
-    
+
     <table border="1">
         <tbody id="tbody2">
 
         </tbody>
     </table>
+
+    <div class='quiz q1'>미래님 최고다</div>
+
+    <div class='quiz q2'>퀴즈2</div>
+    <div class='quiz q2-1'>퀴즈2-1</div>
+    <div class='quiz q2-2'>퀴즈2-2</div>
+    <div class='quiz q2'></div>
+    <div class='quiz q2-1'>퀴즈2-1</div>
 
 
     <script>
@@ -67,7 +75,7 @@
 
         // 카운트 올리기
 
-        setInterval(function(){
+        setInterval(function () {
             const count = document.getElementById('count')
             let cnt = count.textContent
             // console.log(cnt, typeof cnt)
@@ -75,11 +83,11 @@
             count.innerText = cnt
         }, 1000)
 
-        setInterval(function(){
+        setInterval(function () {
             const clock = document.getElementById('clock')
 
             const now = new Date()
-            const str = now.getHours()+'시 '+ now.getMinutes() + '분 '+ now.getSeconds() + '초'
+            const str = now.getHours() + '시 ' + now.getMinutes() + '분 ' + now.getSeconds() + '초'
             clock.innerText = str
         }, 250)
 
@@ -110,22 +118,22 @@
         // 똑같은 객체를 두번 append 할 때 주의
         // 다른 객체는 관계없이 두번 들어간다
         // 같은 객체일 경우 이전 객체 지워지고 마지막 것만 들어감
-        log.append(div) 
+        log.append(div)
 
         const div2 = document.createElement('p')
         div2.innerText = 'p태그'
         // appendChild
         // 마지막 자식 요소로 추가한다
         // DOM만 넣을 수 있다(append와 차이점)
-        log.appendChild( div2 )
+        log.appendChild(div2)
 
         const div3 = document.createElement('p')
         div3.innerText = 'div3 p태그'
 
         // prepend
         // 첫 자식 요소로 추가
-        log.prepend( div3 )
-        
+        log.prepend(div3)
+
         const div4 = document.createElement('div')
         div4.innerText = 'div4'
         log.before(div4)
@@ -161,7 +169,7 @@
 
         const td1_text = '첫째칸'
         td.innerText = td1_text
-        
+
         tbody.innerHTML = `
             <tr>
                 <td>${td1_text}<td>
@@ -169,10 +177,10 @@
         `
 
         const rows = [
-            ['제목1','작성자1'],
-            ['제목2','작성자2'],
-            ['제목3','작성자3'],
-            ['제목4','작성자4']
+            ['제목1', '작성자1'],
+            ['제목2', '작성자2'],
+            ['제목3', '작성자3'],
+            ['제목4', '작성자4']
         ]
 
         // const tbody3 = documnet.querySelector('#tbody2')
@@ -181,13 +189,13 @@
                 <td>${rows[0][0]}</td>
                 <td>${rows[0][1]}</td>
             </tr>
-        `   
-        
+        `
+
         tbody2.innerHTML = html
 
         html = ''
-        
-        for(let i=0; i<rows.length; i++){
+
+        for (let i = 0; i < rows.length; i++) {
             html += `
                 <tr>
                     <td>${rows[i][0]}</td>
@@ -199,7 +207,7 @@
         tbody2.innerHTML = html
 
         tbody2.innerHTML = ''
-        for(let i=0; i<rows.length; i++){
+        for (let i = 0; i < rows.length; i++) {
             html = `
                 <tr>
                     <td>${rows[i][0]}</td>
@@ -210,7 +218,7 @@
         }
 
         tbody2.innerHTML = ''
-        for(let i=0; i<rows.length; i++){
+        for (let i = 0; i < rows.length; i++) {
             const tr1 = document.createElement('tr')
             tr1.innerHTML = `
                 <td>${rows[i][0]}</td>
@@ -220,7 +228,7 @@
         }
 
         tbody2.innerHTML = ''
-        for(let i=0; i<rows.length; i++){
+        for (let i = 0; i < rows.length; i++) {
             html = `
                 <tr>
                     <td>${rows[i][0]}</td>
@@ -254,12 +262,58 @@
 
         let w = window.getComputedStyle(clock, null).getPropertyValue('width')
         console.log(w)
-        
+
 
         clock.style.border = '1px solid red'
         let width_orig = "438.5px"
-        let w2 = Number( width_orig.split('px')[0])
-        clock.style.width = (w2-100)+"px"
+        let w2 = Number(width_orig.split('px')[0])
+        clock.style.width = (w2 - 100) + "px"
+
+
+
+        // 문제 1
+        // 다음 html의 컨텐츠를 출력하고
+        // 화면 글씨 마지막에 '~냥'을 붙여서 표시한다
+        // <div class='quiz q1'>미래님 최고다</div>
+
+        let q1 = document.querySelector('.q1')
+        console.log(q1.innerText)
+        // q1.append('~냥')
+        q1.innerText += '~냥'
+
+        // 문제 2
+        // 다음 코드 중 클래스 q2가 들어가 있는 모든 태그의 개수를 구하시오
+        /*
+            <div class='quiz q2'>퀴즈2</div>
+            <div class='quiz q2-1'>퀴즈2-1</div>
+            <div class='quiz q2-2'>퀴즈2-2</div>
+            <div class='quiz q2'></div>
+            <div class='quiz q2-1'>퀴즈2-1</div>
+        */
+
+        let q2 = document.querySelectorAll('.q2')
+        console.log(q2.length)
+
+        // 문제 3
+        // 위 코드에서 클래스 q2를 가지는 태그의 글씨를 출력하시오
+
+        for (let i = 0; i < q2.length; i++) {
+            if (q2[i].textContent != '') {
+                console.log(q2[i].textContent)
+            }
+        }
+
+
+        // 문제 4
+        // 위 코드에서 클래스 q2를 가지는 태그 중
+        // 글씨가 없는 태그의 내용을 '비어있음😁'으로 표시되게 바꿔주세요
+
+        for (let i = 0; i < q2.length; i++) {
+            if (q2[i].textContent == '') {
+                // q2[i].append('비어있음😁')
+                q2[i].innerText= '비어있음😁'
+            }
+        }
 
 
 

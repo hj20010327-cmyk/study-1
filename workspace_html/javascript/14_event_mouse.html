@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 200vh;
+            overflow: hidden;
+        }
+        #area {
+            margin-top : 50px;
+        }
+        #cursor {
+            position: absolute;
+        }
+        #cursor1 {
+            position: absolute;
+        }
+        #drag {
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+    </style>
+    <script src="./asset/js/14_event_mouse.js"></script>
+</head>
+<body>.
+    <div id="area" style="width:200px;height:100px;border:1px solid red;">
+        굉장히 중요해서 ctrl+c로 퍼가고 싶은 글씨
+    </div>
+
+    <div id="drag">
+        drag me
+    </div>
+
+    <div id="log"></div>
+
+    <img id="cursor" style="width:64px;" src="http://116.36.205.25:5173/uploads/1770608817346_d0289182-4c2d-4e95-8f0f-ec18d12d779e.png">
+    <img id="cursor1" style="width:64px;" src="http://116.36.205.25:5173/uploads/1770615539859_01b424d2-77b1-4b80-ae7e-88a9b7a35bd8.png">
+
+</body>
+</html>

@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #game {
+            position: absolute;
+            top : 300px;
+            left : 10px;
+        }
+        body {
+            height: 300vh;
+        }
+        #top {
+            position : fixed;
+            right : 10px;
+            bottom : 10px;
+        }
+    </style>
     <script src="./asset/js/13_event.js"></script>
 </head>
 <!-- <body onload="javascript:init();"> -->
@@ -12,6 +27,7 @@
         <button type="button" id="btn1">버튼1</button><br>
         <button type="button" id="btn2">버튼2</button><br>
         <button type="button" id="btn3" onclick="javascript:btn3click();alert(1)">버튼3</button><br>
+        <button type="button" id="btn4">버튼4</button><br>
 
         <div>
             아이디 : <input type="text" id="id"><br>
@@ -20,6 +36,11 @@
             <input type="button" id="login" value="로그인">
         </div>
 
+        <img id="game" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFi9o0cT29ouw0B22YO_r77PUZZEGRvjJeLQ&s">
+
+        <button type="button" id="top">맨 위로</button>
+
+        
     </div>
     <div id="console"></div>
 </body>

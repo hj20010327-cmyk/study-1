@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./asset/js/pizza.js"></script>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>
+                <select class="type">
+                    <option value="1">치즈피자</option>
+                    <option value="2">불고기피자</option>
+                    <option value="3">페퍼로니피자</option>
+                    <option value="4">콤비네이션피자</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="size">
+                <input type="radio" name="size" value="18000" size="small">small 18000원
+                <input type="radio" name="size" value="20000" size="medium">medium 20000원
+                <input type="radio" name="size" value="22000" size="large">large 22000원
+            </td>
+        </tr>
+        <tr>
+            <td class="dou">
+                <input type="radio" name="dou" value="씬">씬
+                <input type="radio" name="dou" value="치즈">치즈
+                <input type="radio" name="dou" value="고구마">고구마       
+                <input type="radio" name="dou" value="에그타르트">에그타르트       
+                <input type="radio" name="dou" value="소보로">소보로      
+            </td>
+        </tr>
+        <tr>
+            <td class="topping">
+                <input type="checkbox" value="2000" name="감자">감자 2000
+                <input type="checkbox" value="500" name="올리브">올리브 500
+                <input type="checkbox" value="1000" name="페퍼로니">페퍼로니 1000
+                <input type="checkbox" value="2000" name="고구마">고구마 2000
+                <input type="checkbox" value="5000" name="새우">새우 5000
+                <input type="checkbox" value="3000" name="베이컨">베이컨 3000
+                <input type="checkbox" value="500" name="파인애플">파인애플 500
+            </td>
+        </tr>
+    </table>
+    <input type="button" class="btn" value="확인">
+    <div class="price"></div>
+</body>
+
+</html>

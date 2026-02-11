@@ -11,13 +11,18 @@ function bind() {
     pretty.addEventListener('mouseover', function (event) {
         if (event.target == karina) {
             copy.setAttribute('src', karina.getAttribute('src'))
+            copy.style.height = '300px'
         } else if (event.target == yujin) {
             copy.setAttribute('src', yujin.getAttribute('src'))
+            copy.style.height = '350px'
         } else if (event.target == ihyun) {
             copy.setAttribute('src', ihyun.getAttribute('src'))
+            copy.style.height = '300px'
         }
+        
 
     })
+    
 
 
 }

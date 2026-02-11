@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 배열 : 값을 순서대로 관리
+        const array = []
+
+        // json
+        // 값을 key와 value로 관리
+        // 순서는 보장하지 않는다
+
+        // json 선언
+        let json = {}
+        const v3 = 'v3'
+
+        json = {
+            "key": "value",
+            "num": 1234,
+            'k1':'v1',
+            k2: v3,
+            k3: function(){
+                console.log('함수 실행')
+            },
+            k4 : {
+                k4_1:'v4_1',
+                k4_2:'v4_2'
+            }
+        }
+
+        console.log(json)
+        console.log(''+json)
+
+        // 값 접근
+        // 방법 1 : 배열처럼 접근
+        console.log(json['num'])
+        console.log(json['k4']['k4_1'])
+        
+        // 방법 2 : 프로퍼티처럼 접근
+        console.log(json.num)
+        json.k3()
+
+
+
+
+    </script>
+</head>
+<body>
+    <minsu class="1강의실">강사</minsu>
+</body>
+</html>

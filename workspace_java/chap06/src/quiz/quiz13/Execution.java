@@ -15,6 +15,7 @@ public class Execution {
 		Process process = new Process();
 		
 		process.run(item);
+		process.run(item1);
 	}
 
 }

@@ -11,7 +11,7 @@ public class LoginExam {
 		naver.join(m1);
 		naver.join(m2);
 		
-		naver.login("a1", "aa12");
+		naver.login("a1", "aa1");
 		
 	}
 

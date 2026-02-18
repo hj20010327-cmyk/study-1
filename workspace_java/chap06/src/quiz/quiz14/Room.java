@@ -1,7 +1,16 @@
 package quiz.quiz14;
 
-public class Room {
+import java.util.Scanner;
 
+public class Room {
+	
+	boolean reser;
+	int max;
+	
+	
+		
+		
+	
 	
 	
 }

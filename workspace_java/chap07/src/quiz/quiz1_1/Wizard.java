@@ -8,7 +8,7 @@ public class Wizard extends Character{
 	
 	@Override
 	int att() {
-		this.attack = this.ap + this.weapon + (int)(Math.random()*10 + 10);
+		this.attack = this.ap + this.weapon + (int)(Math.random()*10 + 20);
 		return attack;
 	}
 	

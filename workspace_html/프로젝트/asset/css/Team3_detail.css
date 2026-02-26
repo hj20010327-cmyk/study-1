@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* 헤더 전체 */
+.header {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* 로고 */
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* 검색창 */
+.search-wrapper {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  background: #f1f3f5;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.search-wrapper input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-icon {
+  margin-right: 8px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* 오른쪽 메뉴 */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+}
+
+.mypage {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user-icon {
+  font-size: 14px;
+}
+
+/* 상단 레이아웃 */
+.hotel-top {
+  display: flex;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.hotel-info {
+  flex: 2;
+}
+
+.location {
+  margin: 10px 0 20px;
+  color: #777;
+}
+
+/* 갤러리 */
+.gallery {
+  display: flex;
+  gap: 20px;
+}
+
+.main-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.thumbs img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* 예약박스 */
+.reserve-box {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  height: fit-content;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.reserve-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1976d2;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.price-box .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* 탭 */
+.tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 30px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tabs .active {
+  border-bottom: 3px solid #1976d2;
+  color: #1976d2;
+  font-weight: bold;
+}
+
+/* 객실 카드 */
+.room-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.room-card img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.room-info {
+  flex: 1;
+}
+
+.room-price {
+  text-align: right;
+}
+
+.room-price button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 배너 */
+.floating-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(45deg, #ff7a00, #ffb347);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 반응형 */
+
+/* 태블릿 */
+@media (max-width: 1024px) {
+  .hotel-top {
+    flex-direction: column;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+
+  .gallery {
+    flex-direction: column;
+  }
+
+  .room-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .room-card img {
+    width: 100%;
+  }
+
+  .room-price {
+    text-align: center;
+  }
+
+  .floating-banner {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    text-align: center;
+  }
+}

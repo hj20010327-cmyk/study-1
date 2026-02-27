@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel Detail</title>
   <link rel="stylesheet" href="./asset/css/Team3_detail.css">
-  <script href="./asset/js/Team3_detail.js"></script>
+  <script src="./asset/js/Team3_detail.js"></script>
 </head>
 
 <body>
@@ -26,11 +26,11 @@
 
       <!-- 오른쪽 메뉴 -->
       <nav class="nav">
-        <a href="#">동행</a>
-        <a href="#">회원신청</a>
+        <a href="#">찜목록</a>
+        <a href="#">장바구니</a>
         <a href="#" class="mypage">
-          <span class="user-icon">👤</span>
-          마이페이지
+          <!-- <span class="user-icon">👤</span> -->
+          로그인
         </a>
       </nav>
 
@@ -61,7 +61,7 @@
 
       <!-- 예약 박스 -->
       <aside class="reserve-box">
-        <button class="reserve-btn">Reserve Now</button>
+        <button class="reserve-btn"><a href="#">Reserve Now</a></button>
 
         <div class="price-box">
           <div class="row">
@@ -82,10 +82,10 @@
 
     <!-- 탭 -->
     <div class="tabs">
-      <button class="active">Room Types</button>
-      <button>Amenities</button>
-      <button>Reviews</button>
-      <button>Location</button>
+      <button class="active room">객실</button>
+      <button class="amenities">편의시설</button>
+      <button class="reviews">리뷰</button>
+      <button class="loc">위치</button>
     </div>
 
     <!-- 객실 리스트 -->
@@ -134,10 +134,7 @@
 
   </main>
 
-  <div class="floating-banner">
-    신규 가입<br>
-    <strong>특지 10% 할인!</strong>
-  </div>
+  
 
 </body>
 

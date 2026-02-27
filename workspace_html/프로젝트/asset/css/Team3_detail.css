@@ -145,7 +145,10 @@ body {
   margin-bottom: 20px;
   cursor: pointer;
 }
-
+.reserve-btn a {
+  color: white;
+  text-decoration: none;
+}
 .price-box .row {
   display: flex;
   justify-content: space-between;

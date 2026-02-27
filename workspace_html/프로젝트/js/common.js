@@ -23,6 +23,8 @@ $(() => {
 
   // LNB 로드
   AppShell.load("#lnb", "./partials/lnb.html", AppShell.initLnb);
+
+  
 });
 
 

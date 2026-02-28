@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>STAYO | 숙소 리스트</title>
+    <script src="./asset/js/T3_2nd_list.js"></script>
 
     <!-- 폰트(메인과 동일) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,7 +85,7 @@
                 </div>
 
                 <!-- 필터 칩(버튼처럼 보이는 태그) -->
-                <div class="chips" aria-label="필터">
+                <!-- <div class="chips" aria-label="필터">
                     <button class="chip chip--active" type="button">전체</button>
                     <button class="chip" type="button">무료 취소</button>
                     <button class="chip" type="button">조식 포함</button>
@@ -92,12 +93,12 @@
                     <button class="chip" type="button">주차</button>
                     <button class="chip" type="button">4.8+ 평점</button>
                     <button class="chip" type="button">할인 중</button>
-                </div>
+                </div> -->
 
                 <!-- 정렬 + 가격 범위(간단 UI) -->
             </div>
         </section>
-        
+
         <!-- ==========================
         본문: 좌측 필터 사이드 + 우측 리스트
         - 데스크톱: 2컬럼
@@ -110,7 +111,7 @@
                     <!-- 카드(박스) -->
                     <div class="side-box">
                         <div class="side-box__title">예산</div>
-                        
+
                         <!-- <div class="side-row">
                             <label class="side-label">최소</label>
                             <input class="input" type="text" placeholder="₩0" />
@@ -125,15 +126,15 @@
                         <div class="side-range">
                             <div class="side-range__top">
                                 <span class="side-range__label">가격</span>
-                                <span class="side-range__value">최대 ₩280,000</span>
+                                <span class="side-range__value">₩ 250,000</span>
                             </div>
-                            
+
                             <input class="price-range" type="range" min="50000" max="500000" value="280000" />
                         </div>
 
                         <button class="side-apply" type="button">적용</button>
                     </div>
-                    
+
                     <div class="side-box">
                         <div class="side-box__title">숙소 등급</div>
                         <label class="check"><input type="checkbox" /> 5성급</label>
@@ -141,7 +142,7 @@
                         <label class="check"><input type="checkbox" /> 3성급</label>
                         <label class="check"><input type="checkbox" /> 기타</label>
                     </div>
-                    
+
                     <div class="side-box">
                         <div class="side-box__title">편의시설</div>
                         <label class="check"><input type="checkbox" /> 무료 취소</label>
@@ -160,25 +161,29 @@
                         <label class="check"><input type="radio" name="rate" /> 4.9+</label>
                     </div>
                 </aside>
-                
+
                 <!-- ===== 오른쪽: 결과 리스트 ===== -->
                 <section class="results" aria-label="검색 결과">
                     <!-- 상단 결과 안내 -->
                     <div class="results-head">
-                        <div class="results-head__title">검색 결과</div>
-                        <div class="results-head__meta">총 <b>245</b>개</div>
+
+                        <div class="results-head__left">
+                            <div class="results-head__title">검색 결과</div>
+                            <div class="results-head__meta">총 <b>245</b>개</div>
+                        </div>
+
                         <div class="toolbar">
                             <div class="toolbar__left">
                                 <span class="toolbar__label">정렬</span>
                                 <select class="select">
-                                    <option>추천순</option>
-                                    <option>가격 낮은순</option>
-                                    <option>가격 높은순</option>
-                                    <option>평점 높은순</option>
-                                    <option>후기 많은순</option>
+                                    <option class="recomand">추천순</option>
+                                    <option class="low">가격 낮은 순</option>
+                                    <option class="high">평점 높은 순</option>
+                                    
                                 </select>
                             </div>
                         </div>
+
                     </div>
 
                     <!-- 카드 리스트(그리드) -->

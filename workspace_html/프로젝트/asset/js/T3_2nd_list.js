@@ -40,14 +40,32 @@ function bind() {
 
     select.addEventListener('change',()=>{
         if(select.value == recomand.textContent){
-
+            
             render1(items);
+        } else if(select.value == low.textContent) {
+            const sorted = [...items].sort((a,b) => a.priceFrom - b.priceFrom)
+            render1(sorted);
+        } else if(select.value == high.textContent) {
+            const sorted = [...items].sort((a,b) => b.rating - a.rating)
+            render1(sorted);
         }
     })
 
-    function setActive(target) {
-    
+    const xhr = new XMLHttpRequest();
+    let items = [];
+    const url = 'http://116.36.205.25:15180/api/v1/lodging/properties?city=%EC%84%9C%EC%9A%B8&sort=rating&order=desc&limit=10&offset=0'
+    xhr.open('get', url)
+
+    xhr.onload = function () {
+        const q = JSON.parse(xhr.responseText);
+        items = q.items;
+
+        render(items);
+        
+        console.log(q)
     }
+    xhr.send()
+    
 
 
     function render1(list) {
@@ -57,8 +75,7 @@ function bind() {
             result_grid.innerHTML += `
             <article class="card">
                             <div class="card__media">
-                                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=80"
-                                    alt="시티뷰 럭셔리 호텔" />
+                                <img src="${item.thumbnail}"/>
 
                                 <!-- 왼쪽 상단 배지 -->
                                 <span class="badge badge--dark">할인 중</span>
@@ -77,22 +94,21 @@ function bind() {
                             </div>
 
                             <div class="card__body">
-                                <div class="card__title">모던 시티뷰 호텔</div>
-                                <div class="card__meta">서울 · 강남구</div>
+                                <div class="card__title">${item.name}</div>
+                                <div class="card__meta">${item.city} · ${item.district}</div>
 
                                 <div class="card__row">
                                     <div class="card__rating">
-                                        <span class="star">★</span> 4.8 <span class="count">(512)</span>
+                                        <span class="star">★</span> ${item.rating} <span class="count">${item.reviewCount}</span>
                                     </div>
                                     <div class="card__price">
-                                        ₩189,000 <span>/ 박</span>
+                                        ₩${item.priceFrom} <span>/ 1박</span>
                                     </div>
                                 </div>
 
                                 <div class="card__tags">
-                                    <span class="tag">무료 취소</span>
-                                    <span class="tag">조식 포함</span>
-                                    <span class="tag">피트니스</span>
+                                    <span class="tag">기타 편의시설</span>
+                                    
                                 </div>
 
                                 <a href="#" class="card__btn">객실 보기</a>
@@ -105,18 +121,6 @@ function bind() {
 
 
 
-    const xhr = new XMLHttpRequest();
-    let items = [];
-    const url = 'http://116.36.205.25:15180/api/v1/lodging/properties?city=%EC%84%9C%EC%9A%B8&sort=rating&order=desc&limit=10&offset=0'
-    xhr.open('get', url)
-
-    xhr.onload = function () {
-        const q = JSON.parse(xhr.responseText);
-        items = q.items;
-
-        
-        
-    }
 
 
 }

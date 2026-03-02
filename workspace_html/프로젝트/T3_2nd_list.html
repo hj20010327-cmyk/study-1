@@ -26,15 +26,15 @@
   =========================== -->
     <header class="header">
         <div class="container header__inner">
-            <a href="./index.html" class="logo" aria-label="STAYO 홈">STAYO</a>
+            <a href="#" class="logo" aria-label="STAYO 홈">STAYO</a>
 
-            <nav class="gnb" aria-label="주요 메뉴">
+            <!-- <nav class="gnb" aria-label="주요 메뉴">
                 <a href="#" class="gnb__link">숙소</a>
                 <a href="#" class="gnb__link">항공권</a>
                 <a href="#" class="gnb__link">패키지</a>
                 <a href="#" class="gnb__link">액티비티</a>
                 <a href="#" class="gnb__link">렌터카</a>
-            </nav>
+            </nav> -->
 
             <div class="header__right">
                 <button class="icon-btn" type="button" aria-label="언어/지역">
@@ -44,16 +44,18 @@
                     </svg>
                 </button>
 
-                <button class="icon-btn" type="button" aria-label="찜 목록">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-                     2 6 4 4 6.5 4
-                     8.04 4 9.54 4.81 10.4 6.09
-                     11.26 4.81 12.76 4 14.3 4
-                     16.8 4 18.8 6 18.8 8.5
-                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                    </svg>
-                </button>
+                <a href="#">
+                    <button class="icon-btn" type="button" aria-label="찜 목록">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                         2 6 4 4 6.5 4
+                         8.04 4 9.54 4.81 10.4 6.09
+                         11.26 4.81 12.76 4 14.3 4
+                         16.8 4 18.8 6 18.8 8.5
+                         c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </a>
 
                 <a href="#" class="btn btn--login">
                     <span class="btn__icon" aria-hidden="true">
@@ -110,7 +112,7 @@
                 <aside class="sidebar" aria-label="상세 필터">
                     <!-- 카드(박스) -->
                     <div class="side-box">
-                        <div class="side-box__title">예산</div>
+                        <div class="side-box__title">필터</div>
 
                         <!-- <div class="side-row">
                             <label class="side-label">최소</label>
@@ -129,7 +131,7 @@
                                 <span class="side-range__value">₩ 250,000</span>
                             </div>
 
-                            <input class="price-range" type="range" min="50000" max="500000" value="280000" />
+                            <input class="price-range" type="range" min="0" max="500000" value="250000" />
                         </div>
 
                         <button class="side-apply" type="button">적용</button>

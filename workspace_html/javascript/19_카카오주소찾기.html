@@ -12,13 +12,7 @@
             document.querySelector('#btn')
                 .addEventListener('click', () => {
 
-                    new kakao.Postcode({
-                        oncomplete: function (data) {
-                            console.log(data)
-                            document.querySelector('#addr').value = `${data.address} (${data.buildingName})`
-                            document.querySelector('#code').value = data.zonecode
-                        }
-                    }).open();
+                    
 
                 })
         }

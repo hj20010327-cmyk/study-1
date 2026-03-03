@@ -7,7 +7,7 @@ async function bind() {
     listRes = await DD.V1.TB.Lodging.list(q);
     items = listRes.items;
 
-    console.log(items[0].name)
+    // console.log(items[0].name)
 
     const property_title = document.querySelector('.property-title')
     const muted = document.querySelector('.muted')
@@ -79,7 +79,7 @@ async function bind() {
     }
 
     const logCall = (label, method, url, body) => {
-        console.log(`[CALL] ${label} :: ${method} ${url}`);
+        // console.log(`[CALL] ${label} :: ${method} ${url}`);
         if (body !== undefined) console.log(`[BODY] ${label}`, body);
     };
 
@@ -107,11 +107,14 @@ async function bind() {
         .catch((e) => logErr("TB-LOD-3 PROPERTIES_ROOMS", e));
 
 
+    
+
 
 
     function render1(list = []) {
         list.forEach((r) => {
 
+            
             room_list.innerHTML += `
             <article class="room">
                         <div class="room__media">
@@ -132,7 +135,7 @@ async function bind() {
         
                         <div class="room__side">
                           <div class="room__price">
-                            ₩ ${r.basePrice} <span>/ 박</span>
+                            ₩ ${r.basePrice} 
                           </div>
                           <button class="btn-main" type="button">선택</button>
                         </div>
@@ -167,17 +170,35 @@ async function bind() {
         // 예약 카드 가격 변경
         book_price.innerHTML = price;
 
-        sum_row.innerHTML = price
-        sum_row1.innerHTML = price
+        const price2 = price.split('\n')
+        const price3 = price2[1].split('₩')
+        const priceResult = price3[1].trim() * 2
+        function render() {
+            let num = priceResult
+            let money = "" + num;
+            let result = "";
+
+            while (money.length > 3) {
+                result = "," + money.substring(money.length - 3) + result;
+                money = money.substring(0, money.length - 3);
+            }
+            result = money + result;
+            sum_row.innerHTML = '₩ ' + result;
+
+        }
+        render(priceResult);
+
+        // console.log(priceResult)
+        sum_row1.innerHTML = price + "/ 2박"
     });
 
     const sum_row = document.querySelector('.sum-row b')
     const sum_row1 = document.querySelector('.sum-row span')
 
 
-    const map__text = document.querySelector('.map__text')
+    // const map__text = document.querySelector('.map__text')
 
-    
+
 
 
 

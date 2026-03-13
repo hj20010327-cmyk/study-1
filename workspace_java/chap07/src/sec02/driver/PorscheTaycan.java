@@ -10,5 +10,4 @@ public class PorscheTaycan extends Car{
 	void run() {
 		System.out.println("부아앙~~");
 	}
-	
 }

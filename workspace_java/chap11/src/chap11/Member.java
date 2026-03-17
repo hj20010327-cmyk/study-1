@@ -15,5 +15,16 @@ public class Member {
 		Member mem1 = (Member)obj;
 		return this.id.equals(mem1.id) && this.num == mem1.num;
 	}
+
+	
+//	@Override
+//	public String toString() {
+//		return "id: "+ this.id + ", num: "+ this.num;
+//	}
+	
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", num=" + num + "]";
+	}
 	
 }

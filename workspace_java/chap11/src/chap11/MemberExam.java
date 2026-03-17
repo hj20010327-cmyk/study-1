@@ -10,6 +10,7 @@ public class MemberExam {
 		System.out.println( m1 == m2 );
 		System.out.println( m1.equals(m2) );
 		
+		System.out.println(m1.toString());
 	}
 
 }

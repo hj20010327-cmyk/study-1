@@ -3,6 +3,7 @@ package todo.service;
 import java.util.List;
 
 import todo.DAO.TodoDAO;
+import todo.DTO.TodoDTO;
 
 public class TodoService {
 
@@ -14,6 +15,12 @@ public class TodoService {
 		
 		return todoDAO.selectAll();
 		
+	}
+	
+	public TodoDTO getTodo(int todo_id) {
+		TodoDAO todoDAO = new TodoDAO();
+		TodoDTO todoDTO = todoDAO.selectOne(todo_id);
+		return todoDTO;
 	}
 	
 }

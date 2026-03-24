@@ -32,45 +32,42 @@ public class TodoController extends HttpServlet {
 		// html로 출력하기
 		PrintWriter out = response.getWriter();
 		
+		out.println("<a href='/proj03_1_todo/todo/insert'>만들기</a>");
+		out.println("<form method='post' action='/proj03_1_todo/todo/deleteall'>");
 		out.println("<table border=1>");
 		out.println("<tr>");
+		out.println("	<th>선택</th>");
 		out.println("	<th>todo_id</th>");
-//		out.println("	<th>duedate</th>");
-//		out.println("	<th>done</th>");
+		out.println("	<th>duedate</th>");
+		out.println("	<th>done</th>");
 		out.println("	<th>content</th>");
 		out.println("	<th>ctime</th>");
 		out.println("</tr>");
 		
 		for(int i=0; i<list.size(); i++) {
-//			Map map = (Map)list.get(i);
-//			
-//			
-//			out.println("<tr>");
-//			out.println("	<td>"+map.get("todo_id")+"</td>");
-////			out.println("	<td>"+map.get("duedate")+"</td>");
-////			out.println("	<td>"+map.get("done")+"</td>");
-//			out.println("	<td>"+map.get("content")+"</td>");
-//			out.println("	<td>"+map.get("ctime")+"</td>");
-//			out.println("</tr>");
-			
 			TodoDTO todoDTO = list.get(i);
 			
 			out.println("<tr>");
+			out.println("<td><input type='checkbox' name='delete' value='"+ todoDTO.getTodo_id()+"'></td>");
 			out.println("	<td>"+todoDTO.getTodo_id()+"</td>");
-//			out.println("	<td>"+todoDTO.getDuedate()+"</td>");
-//			out.println("	<td>"+todoDTO.getDone()+"</td>");
+			out.println("	<td>"+todoDTO.getDuedate()+"</td>");
+			out.println("	<td>"+todoDTO.getDone()+"</td>");
 			out.println("	<td><a href=\"/proj03_1_todo/todo/detail?todo_id=" +todoDTO.getTodo_id()+ "\">"+todoDTO.getContent()+"</td> </a>");
 			out.println("	<td>"+todoDTO.getCtime()+"</td>");
 			out.println("</tr>");
 		}
 		out.println("</table>");
+		out.println("<input type='submit' value='선택 삭제'>");
+		out.println("</form>");
+		
 		
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		doGet(request, response);
 	}
 
 }

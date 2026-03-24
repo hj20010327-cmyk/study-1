@@ -23,4 +23,19 @@ public class TodoService {
 		return todoDTO;
 	}
 	
+	public int insertTodo(TodoDTO todoDTO) {
+		TodoDAO todoDAO = new TodoDAO();
+		return todoDAO.insert(todoDTO);
+	}
+	
+	public int modifyTodo(TodoDTO todoDTO) {
+		TodoDAO todoDAO = new TodoDAO();
+		return todoDAO.modify(todoDTO);
+	}
+	
+	public int deleteTodo(TodoDTO todoDTO) {
+		TodoDAO todoDAO = new TodoDAO();
+		return todoDAO.todoDelete(todoDTO);
+	}
+	
 }

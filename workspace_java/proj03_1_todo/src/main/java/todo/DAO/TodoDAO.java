@@ -174,5 +174,139 @@ public class TodoDAO {
 		}
 		return todoDTO;
 	}
+	public int insert (TodoDTO todoDTO) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		int rs = -1;
+		
+		try {
+			Context ctx = new InitialContext();
+			// DataSource : 커넥션 풀 관리자
+			DataSource dataFactory = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle");
+			
+			// 1. DB 접속
+			conn = dataFactory.getConnection();
+			// 2. SQL 준비
+			String query = "insert into todo(todo_id, duedate, done, content"
+					+ ", ctime) values (seq_todo.nextval, null, 0, ?,sysdate)"
+					; // 변수 방식
+			ps = conn.prepareStatement(query);
+			ps.setString(1, todoDTO.getContent());
+			
+			// 3. 실행 및 결과 확보
+			rs = ps.executeUpdate();
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+			}
+		}
+		return rs;
+	}
+	
+	public int modify (TodoDTO todoDTO) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		int rs = -1;
+		
+		try {
+			Context ctx = new InitialContext();
+			// DataSource : 커넥션 풀 관리자
+			DataSource dataFactory = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle");
+			
+			// 1. DB 접속
+			conn = dataFactory.getConnection();
+			// 2. SQL 준비
+			String query = "update todo set duedate=?, done=?, content=?, ctime=sysdate"
+					+ " where todo_id=?";
+				
+			// 변수 방식
+			ps = conn.prepareStatement(query);
+			ps.setDate(1, todoDTO.getDuedate());
+			ps.setInt(2, todoDTO.getDone());
+			ps.setString(3, todoDTO.getContent());
+			ps.setInt(4, todoDTO.getTodo_id());
+			
+			rs = ps.executeUpdate();
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+			}
+		}
+		return rs;
+	}
+	public int todoDelete (TodoDTO todoDTO) {
+		
+		Connection conn = null;
+		PreparedStatement ps = null;
+		int rs = -1;
+		try {
+			Context ctx = new InitialContext();
+			// DataSource : 커넥션 풀 관리자
+			DataSource dataFactory = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle");
+			
+			// 1. DB 접속
+			conn = dataFactory.getConnection();
+			// 2. SQL 준비
+			String query = "delete from todo where todo_id = ?";
+			ps = conn.prepareStatement(query);
+			ps.setInt(1, todoDTO.getTodo_id());
+			
+			rs = ps.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+			}
+		}
+		return rs;
+	}
 
 }

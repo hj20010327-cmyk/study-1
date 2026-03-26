@@ -36,11 +36,11 @@
 	\${ !("a" eq "a") } : ${ !("a" eq "a") }<br>
 	\${ not("a" eq "a") } : ${ not("a" eq "a") }<br>
 
-	\${ 10 > 4 } : ${ 10 > 4 } : greater then<br>
-	\${ 10 gt 4 } : ${ 10 gt 4 } : greater then<br>
+	\${ 10 > 4 } : ${ 10 > 4 } : greater than<br>
+	\${ 10 gt 4 } : ${ 10 gt 4 } : greater than<br>
 
-	\${ 10 < 4 } : ${ 10 < 4 } : less then 또는 little then<br>
-	\${ 10 lt 4 } : ${ 10 lt 4 } : less then 또는 little then<br>
+	\${ 10 < 4 } : ${ 10 < 4 } : less than 또는 little than<br>
+	\${ 10 lt 4 } : ${ 10 lt 4 } : less than 또는 little than<br>
 
 	\${ 10 >= 4 } : ${ 10 >= 4 }<br>
 	\${ 10 ge 4 } : ${ 10 ge 4 } : greater or equal<br>

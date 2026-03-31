@@ -61,6 +61,11 @@ public class EmpDTO {
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
 	}
+	@Override
+	public String toString() {
+		return "EmpDTO [empno=" + empno + ", ename=" + ename + ", job=" + job + ", mgr=" + mgr + ", hiredate="
+				+ hiredate + ", sal=" + sal + ", comm=" + comm + ", deptno=" + deptno + "]";
+	}
 	
 	
 	

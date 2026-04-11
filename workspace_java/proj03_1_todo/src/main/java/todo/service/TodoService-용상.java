@@ -1,0 +1,41 @@
+package todo.service;
+
+import java.util.List;
+
+import todo.DAO.TodoDAO;
+import todo.DTO.TodoDTO;
+
+public class TodoService {
+
+	public List getList() {
+		// TodoDAO의 selectAll을 호출하고
+		// 그 List를 return 해주세요
+		
+		TodoDAO todoDAO = new TodoDAO();
+		
+		return todoDAO.selectAll();
+		
+	}
+	
+	public TodoDTO getTodo(int todo_id) {
+		TodoDAO todoDAO = new TodoDAO();
+		TodoDTO todoDTO = todoDAO.selectOne(todo_id);
+		return todoDTO;
+	}
+	
+	public int insertTodo(TodoDTO todoDTO) {
+		TodoDAO todoDAO = new TodoDAO();
+		return todoDAO.insert(todoDTO);
+	}
+	
+	public int modifyTodo(TodoDTO todoDTO) {
+		TodoDAO todoDAO = new TodoDAO();
+		return todoDAO.modify(todoDTO);
+	}
+	
+	public int deleteTodo(TodoDTO todoDTO) {
+		TodoDAO todoDAO = new TodoDAO();
+		return todoDAO.todoDelete(todoDTO);
+	}
+	
+}

@@ -36,15 +36,10 @@ public class LoginController extends HttpServlet {
 		// 단, 로그인 실패 시 null을 받는다
 		LoginDAO loginDAO = new LoginDAO();
 		EmpDTO resultDTO = loginDAO.selectMember(dto);
-		HttpSession session = request.getSession(false);
 		
 		// null이면
 		//		로그인 페이지로 이동
 		
-		if(session == null) {
-			response.getWriter().print("로그인 해주세요");
-		} else {
-			
 			if(resultDTO == null) {
 				response.sendRedirect("login.jsp?msg=1");
 			} else {
@@ -53,11 +48,10 @@ public class LoginController extends HttpServlet {
 				//		일단은 로그인 성공이라고 출력만
 				System.out.println(resultDTO.getJob() +"님 환영함다");
 				
-				HttpSession session2 = request.getSession();
-				session2.setAttribute("resultDTO", resultDTO);
-				response.sendRedirect(request.getContextPath() + "/emp/control");
+				HttpSession session = request.getSession();
+				session.setAttribute("resultDTO", resultDTO);
+				response.sendRedirect(request.getContextPath() + "/emp/control?empno="+resultDTO.getEmpno());
 			}
-		}
 		
 			
 		
